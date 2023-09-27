@@ -10,23 +10,24 @@
                     <div class="mb-5 ps-3">
                         <h6 class="mb-1">Available Jobs</h6>
                     </div>
-                    <div class="row">
-                        @if ($jobsWithDetails->isEmpty())
-                            <p>No job records found.</p>
-                        @else
-                            @foreach ($jobsWithDetails->groupBy('date') as $date => $records)
-                                <div class="container">
-                                    @if ($records->isEmpty())
-                                        <p>No job records found for this date.</p>
-                                    @else
+                    @if ($jobsWithDetails->isEmpty())
+                        <p>No job records found.</p>
+                    @else
+                        @foreach ($jobsWithDetails->groupBy('date') as $date => $records)
+                            <div class="container">
+                                @if ($records->isEmpty())
+                                    <p>No job records found for this date.</p>
+                                @else
+                                    <div class="row">
                                         @foreach ($records as $record)
-                                            <div class="col-md-4 mb-4">
+                                            <div class="col-md-12 mb-4">
                                                 <div class="card">
-                                                    <div class="card-header p-0 mt-n4 mx-3">
+                                                    <div class="card-header p-0 mt-n4 mx-6">
                                                         <a class="d-block shadow-xl border-radius-xl">
                                                             <!-- You can add your image here -->
                                                             <img src="{{ asset('assets') }}/img/team-1.jpg"
-                                                                alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                                                                alt="img-blur-shadow" class="img-fluid shadow border-radius-xl"
+                                                                style="height: 100%;">
                                                         </a>
                                                     </div>
                                                     <div class="card-body p-3">
@@ -48,11 +49,11 @@
                                                 </div>
                                             </div>
                                         @endforeach
-                                    @endif
-                                </div>
-                            @endforeach
-                        @endif
-                    </div>
+                                    </div>
+                                @endif
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>

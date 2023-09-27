@@ -25,7 +25,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobDetailsController;
             
 
-Route::get('/', function () {return redirect('sign-in');})->middleware('guest');
+//Route::get('/', function () {return redirect('sign-in');})->middleware('guest');
 Route::get('/', [DashboardController::class, 'welcome'])->middleware('guest');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 Route::get('/viewJob/{id}', [JobController::class, 'viewJobById']);
