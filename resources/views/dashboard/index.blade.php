@@ -40,13 +40,13 @@
                                                 <td class="align-middle">
                                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Edit user">
-                                                        <a href="{{ '/editJob/'. $job->id }}">Edit Job</a>
+                                                        <a href="{{ '/editJob/'. $job->id }}">Edit</a>
                                                     </a>
                                                 </td>
                                                 <td class="align-middle">
                                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Edit user">
-                                                        <a href="{{ '/deleteJob/'. $job->id }}">Edit Job</a>
+                                                        <a href="{{ '/deleteJob/'. $job->id }}">Delete</a>
                                                     </a>
                                                 </td>
                                             </tr>

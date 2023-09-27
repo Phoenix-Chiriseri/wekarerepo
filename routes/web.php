@@ -22,6 +22,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\JobDetailsController;
             
 
 Route::get('/', function () {return redirect('sign-in');})->middleware('guest');
@@ -43,6 +44,7 @@ Route::get('/reset-password/{token}', function ($token) {
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/createJob', [JobController::class, 'index'])->name("createJob");
     Route::post('/submitJob', [JobController::class, 'store'])->name("submitJob");
+    Route::get('/deleteJob/{id}', [JobDetailsController::class, 'deleteJob']);
 	Route::get('tables', function () {
 		return view('pages.tables');
 	})->name('tables');

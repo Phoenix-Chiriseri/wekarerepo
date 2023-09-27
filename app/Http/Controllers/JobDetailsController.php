@@ -24,6 +24,18 @@ class JobDetailsController extends Controller
         //
     }
 
+
+    public function deleteJob($id){
+        $job = Job::find($id);
+        if ($job) {
+            $job->delete();      
+            // Optionally, you can redirect to a page after deletion
+            return redirect()->route('home')->with('success', 'Job deleted successfully');
+        } else {
+            // Handle the case where the job with the given ID was not found
+            return redirect()->route('jobs.index')->with('error', 'Job not found');
+        }
+    }
     /**
      * Store a newly created resource in storage.
      */

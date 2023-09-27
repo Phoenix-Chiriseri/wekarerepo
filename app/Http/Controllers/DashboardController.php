@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $jobs = Job::all();
+        $jobs = Job::orderBy('id', 'desc')->get();
         return view('dashboard.index')->with("jobs",$jobs);
     }
 }
