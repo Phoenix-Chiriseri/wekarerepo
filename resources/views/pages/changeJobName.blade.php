@@ -32,7 +32,7 @@
                     <div class="card-header pb-0 p-3">
                         <div class="row">
                             <div class="col-md-8 d-flex align-items-center">
-                                <h6 class="mb-3">Please Create A Job</h6>
+                                <h6 class="mb-3">Please Change The Job Name</h6>
                             </div>
                         </div>
                     </div>
@@ -59,12 +59,13 @@
                                     </div>
                                 </div>
                         @endif
-                        <form method='POST' action='{{ route('submitJob') }}'>
+                        <form method='POST' action="{{ route('submitChangeJobName',$job->id) }}">
                             @csrf
+                            @method("PUT")
                             <div class="row"> 
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label">Name</label>
-                                    <input type="text" name="job" class="form-control border border-2 p-2">
+                                    <input type="text" name="job" class="form-control border border-2 p-2" value = "{{$job->job}}">
                                     @error('job')
                                 <p class='text-danger inputerror'>{{ $message }} </p>
                                 @enderror

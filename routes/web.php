@@ -45,6 +45,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/createJob', [JobController::class, 'index'])->name("createJob");
     Route::post('/submitJob', [JobController::class, 'store'])->name("submitJob");
     Route::get('/deleteJob/{id}', [JobDetailsController::class, 'deleteJob']);
+	Route::get('/editJob/{id}', [JobDetailsController::class, 'editJob']);
+	Route::get('/changeName/{id}', [JobController::class, 'changeJobName']);
+	Route::post('/submitJobDetails', [JobDetailsController::class, 'createJobDetails'])->name('submitJobDetails');
+	Route::put('/submitChangeJobName/{$id}', [JobController::class, 'submitChangeJobName'])->name('submitChangeJobName');
 	Route::get('tables', function () {
 		return view('pages.tables');
 	})->name('tables');
@@ -70,8 +74,6 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('pages.laravel-examples.user-profile');
 	})->name('user-profile');
 });
-
-
 Route::post('sign-out', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 Route::get('profile', [ProfileController::class, 'create'])->middleware('auth')->name('profile');
 Route::post('user-profile', [ProfileController::class, 'update'])->middleware('auth');

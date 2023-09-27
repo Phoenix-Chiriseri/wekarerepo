@@ -43,6 +43,26 @@ class JobController extends Controller
         $job->save();
         return redirect('/dashboard');
     }
+
+    public function changeJobName($id){
+
+        $name = Auth::user()->name;
+        $job = Job::find($id);
+        return view("pages.changeJobName")->with("job",$job)->with("name",$name);
+
+    }
+
+    public function submitChangeJobName(Request $request,$id){
+
+        
+       $validatedData = $request->validate([
+            'job' => 'required|string',
+        ]);
+       $job = Job::find($id);
+       $job->update($request->all());
+       echo "done";
+
+    }
     /**
      * Display the specified resource.
      */

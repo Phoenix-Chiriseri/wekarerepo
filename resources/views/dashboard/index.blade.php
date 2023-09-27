@@ -18,11 +18,12 @@
                                 <table class="table align-items-center mb-0">
                                     <thead>
                                         <tr>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Created At</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Updated At</th>
-                                            <th class="text-secondary opacity-7">Update Job Details</th>
-                                            <th class="text-secondary opacity-7">Delete Job</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Name</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Created At</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Updated At</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Add Job Details</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Delete Job</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Update Job Name</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -40,13 +41,19 @@
                                                 <td class="align-middle">
                                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Edit user">
-                                                        <a href="{{ '/editJob/'. $job->id }}">Edit</a>
+                                                        <a href="{{ '/editJob/'. $job->id }}" class = "btn btn-danger btn-link">Add</a>
                                                     </a>
                                                 </td>
                                                 <td class="align-middle">
                                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Edit user">
-                                                        <a href="{{ '/deleteJob/'. $job->id }}">Delete</a>
+                                                        <a href="{{ '/deleteJob/'. $job->id }}" class = "btn btn-info btn-link">Delete</a>
+                                                    </a>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                        data-toggle="tooltip" data-original-title="Edit user">
+                                                        <a href="{{ '/changeName/'. $job->id }}" class = "btn btn-warning btn-link">Update</a>
                                                     </a>
                                                 </td>
                                             </tr>

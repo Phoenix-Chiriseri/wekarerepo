@@ -6,25 +6,10 @@ use App\Models\JobDetails;
 use App\Models\Job;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
 
 class JobDetailsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
 
     public function deleteJob($id){
         $job = Job::find($id);
@@ -37,12 +22,46 @@ class JobDetailsController extends Controller
             return redirect()->route('jobs.index')->with('error', 'Job not found');
         }
     }
+
+    public function editJob($id)
+    {
+        $name = Auth::user()->name;
+        $job = Job::find($id);
+        $shiftOptions = [
+            'morning' => 'Morning Shift',
+            'late' => 'Late Shift',
+            'night' => 'Night Shift',
+            'long' => 'Long Day',
+        ];
+        return view('pages.editJob')->with("shiftOptions",$shiftOptions)->with("job",$job)->with(
+        "name",$name
+        );   
+        
+    }
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function createJobDetails(Request $request)
     {
         //
+        // Validate the form data
+        //store the job with the details
+        $validatedData = $request->validate([
+            // Ensure that the selected job exists
+           'date' => 'required|date',
+           'num_people' => 'required|integer',
+           'shift' => 'required|string',
+       ]);
+
+       // Create a new job detail
+       $jobDetail = new JobDetails();
+       $jobDetail->job_id = $request->input('id');
+       $jobDetail->date = $validatedData['date'];
+       $jobDetail->num_people = $validatedData['num_people'];
+       $jobDetail->shift = $validatedData['shift'];
+       // Save the job detail to the database
+       $jobDetail->save();
+       return redirect('/dashboard');
     }
 
     /**
