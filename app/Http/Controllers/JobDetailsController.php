@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\JobDetails;
+use App\Models\Job;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,7 @@ class JobDetailsController extends Controller
         if ($job) {
             $job->delete();      
             // Optionally, you can redirect to a page after deletion
-            return redirect()->route('home')->with('success', 'Job deleted successfully');
+            return redirect()->route('dashboard')->with('success', 'Job deleted successfully');
         } else {
             // Handle the case where the job with the given ID was not found
             return redirect()->route('jobs.index')->with('error', 'Job not found');
