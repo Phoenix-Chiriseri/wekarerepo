@@ -6,6 +6,7 @@ use App\Models\Job;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 class JobController extends Controller
 {
@@ -62,6 +63,22 @@ class JobController extends Controller
        $job->update($request->all());
        echo "done";
 
+    }
+
+
+    public function viewJobById($id){
+        
+        $jobId = Job::find($id)->id; // Get the job ID from the retrieved Job model
+        $startDate = now()->toDateString();
+        $endDate = now()->addDays(7)->toDateString();
+        $jobsWithDetails = DB::table('jobs')
+        ->leftJoin('job_details', 'jobs.id', '=', 'job_details.job_id')
+        ->select('jobs.job', 'job_details.date', 'job_details.shift', DB::raw('SUM(job_details.num_people)   as total_num_people'))
+        ->where('jobs.id', $jobId) // Filter by the specific job ID
+        ->whereBetween('job_details.date', [$startDate, $endDate])
+        ->groupBy('jobs.job', 'job_details.date', 'job_details.shift')
+        ->get();
+        return view('pages.viewJobById')->with('jobsWithDetails', $jobsWithDetails);
     }
     /**
      * Display the specified resource.
