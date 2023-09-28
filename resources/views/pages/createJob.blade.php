@@ -7,10 +7,10 @@
         <!-- End Navbar -->
         <div class="container-fluid px-2 px-md-4">
             <div class="page-header min-height-300 border-radius-xl mt-4"
-                style="background-image: url('https://img.freepik.com/free-photo/social-worker-taking-care-senior-woman_23-2149031335.jpg?w=1060&t=st=1695889916~exp=1695890516~hmac=44d55a5f6eca2d098175c8f67c96efe705b9e18d66887b4e980e31aea01db6ee');">
+            style="background-image: url('{{ asset('assets/img/banna.jpg') }}'); background-size: cover;">
 
             </div>
-            <div class="card card-body mx-3 mx-md-4 mt-n6">
+            <div class="card card-body mx-3 mx-md-4 mt-n6" style="box-shadow:2px 2px 4px 4px; black;">
                 <div class="row gx-4 mb-2">
                     <div class="col-auto">
                         <div class="avatar avatar-xl position-relative">
