@@ -1,4 +1,13 @@
 <x-layout bodyClass="bg-gray-200">
+    <div class="jumbotron jumbotron-fluid mb-0 bg-info text-white">
+        <div class="container">
+            <h1 class="display-4 text-center" style="color:white;">Welcome to Our Job Listings</h1>
+            <p class="lead text-center">Find your dream job below.</p>
+            <p class="lead text-center">
+                <a class="btn btn-light btn-lg text-center" href="https://wctc.care/about-me/" role="button">About Us</a>
+            </p>
+        </div>
+    </div>
     <div class="main-content d-flex justify-content-center align-items-center bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid px-2 px-md-4">
             <div class="row">
