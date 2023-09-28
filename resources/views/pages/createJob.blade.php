@@ -7,14 +7,14 @@
         <!-- End Navbar -->
         <div class="container-fluid px-2 px-md-4">
             <div class="page-header min-height-300 border-radius-xl mt-4"
-                style="background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
-                <span class="mask  bg-gradient-primary  opacity-6"></span>
+                style="background-image: url('https://img.freepik.com/free-photo/social-worker-taking-care-senior-woman_23-2149031335.jpg?w=1060&t=st=1695889916~exp=1695890516~hmac=44d55a5f6eca2d098175c8f67c96efe705b9e18d66887b4e980e31aea01db6ee');">
+
             </div>
             <div class="card card-body mx-3 mx-md-4 mt-n6">
                 <div class="row gx-4 mb-2">
                     <div class="col-auto">
                         <div class="avatar avatar-xl position-relative">
-                            <img src="{{ asset('assets') }}/img/bruce-mars.jpg" alt="profile_image"
+                            <img src="{{ asset('assets') }}/img/wctclogo.png" alt="profile_image"
                                 class="w-100 border-radius-lg shadow-sm">
                         </div>
                     </div>

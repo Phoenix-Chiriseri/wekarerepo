@@ -124,7 +124,6 @@
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Updated At</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Add Job Details</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Delete Job</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Update Job Name</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -149,12 +148,6 @@
                                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Edit user">
                                                         <a href="{{ '/deleteJob/'. $job->id }}" class = "btn btn-info btn-link">Delete</a>
-                                                    </a>
-                                                </td>
-                                                <td class="align-middle">
-                                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                        data-toggle="tooltip" data-original-title="Edit user">
-                                                        <a href="{{ '/changeName/'. $job->id }}" class = "btn btn-warning btn-link">Update</a>
                                                     </a>
                                                 </td>
                                             </tr>
