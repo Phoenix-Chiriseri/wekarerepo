@@ -3,7 +3,7 @@
     <div class="jumbotron jumbotron-fluid mb-0 bg-info text-white">
         <div class="container">
             <h1 class="display-4 text-center" style="color:white;">Welcome to Our Job Listings</h1>
-            <p class="lead text-center">Find your dream job below.</p>
+            <p class="lead text-center">Select A Job Below</p>
             <p class="lead text-center">
                 <a class="btn btn-light btn-lg text-center" href="https://wctc.care/about-me/" role="button">About Us</a>
             </p>
