@@ -25,13 +25,11 @@
                                                     <div class="card-header p-0 mt-n4 mx-6">
                                                         <a class="d-block shadow-xl border-radius-xl">
                                                             <!-- You can add your image here -->
-                                                            <img src="{{ asset('assets') }}/img/team-1.jpg"
-                                                                alt="img-blur-shadow" class="img-fluid shadow border-radius-xl"
-                                                                style="height: 100%;">
+                        
                                                         </a>
                                                     </div>
                                                     <div class="card-body p-3">
-                                                        <p class="mb-0 text-sm">Job Details</p>
+                                                        
                                                         <a href="javascript:;">
                                                             <h6 class="card-subtitle mb-2 text-muted">{{ $record->job }}</h6>
                                                             <p class="card-text">Shift: {{ $record->shift }}</p>

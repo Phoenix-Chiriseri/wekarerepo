@@ -17,7 +17,7 @@
                                     <div class="card card-blog card-plain">
                                         <div class="card-header p-0 mt-n4 mx-3">
                                             <a class="d-block shadow-xl border-radius-xl">
-                                                <img src="{{ asset('assets') }}/img/home-decor-1.jpg"
+                                                <img src="{{ asset('assets') }}/img/wctclogo.png"
                                                     alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                                             </a>
                                         </div>

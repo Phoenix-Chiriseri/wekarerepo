@@ -51,6 +51,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/changeName/{id}', [JobController::class, 'changeJobName']);
 	Route::post('/submitJobDetails', [JobDetailsController::class, 'createJobDetails'])->name('submitJobDetails');
 	Route::put('/submitChangeJobName/{$id}', [JobController::class, 'submitChangeJobName'])->name('submitChangeJobName');
+	Route::put('/submitChangeJobName/{$id}', [JobController::class, 'submitChangeJobName'])->name('submitChangeJobName');
+	
 	
 	Route::get('tables', function () {
 		return view('pages.tables');

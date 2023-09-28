@@ -20,12 +20,6 @@
                                         <h5 class="text-white mt-4 mb-5 pb-2">
                                           We Choose To Care
                                         </h5>
-                                        <div class="d-flex">
-                                            <div class="d-flex">
-                                               
-                                            </div>
-                                          
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -104,7 +98,7 @@
                             </div>
                         </div>
                         <div class="card-body p-3 pb-0">
-                            <img src="{{ asset('assets') }}/img/home-decor-1.jpg"
+                            <img src="{{ asset('assets') }}/img/wctclogo.png"
                             alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                         </div>
                     </div>
