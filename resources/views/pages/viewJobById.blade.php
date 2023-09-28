@@ -24,22 +24,24 @@
                                 @if ($records->isEmpty())
                                     <p>No job records found for this date.</p>
                                 @else
-                                    <div class="row">
+                                    <div class="row shadow-lg">
                                         @foreach ($records as $record)
                                             <div class="col-md-12 mb-4">
                                                 <div class="card">
                                                     <div class="card-header p-0 mt-n4 mx-6">
                                                         <a class="d-block shadow-xl border-radius-xl">
                                                             <!-- You can add your image here -->
-                                                            Date: {{ $record->date }}
+                                                           
                                                         </a>
                                                     </div>
                                                     <div class="card-body p-3">
-                                                        
+                                                        <span class="badge text-bg-primary">Primary</span> 
                                                         <a href="javascript:;">
-                                                            <h6 class="card-subtitle mb-2 text-muted">{{ $record->job }}</h6>
-                                                            <p class="card-text">Shift: {{ $record->shift }}</p>
-                                                            <p class="card-text">Total Number of People: {{ $record->total_num_people }}</p>
+                                                            <h6 class="card-subtitle mb-2 text-center">
+                                                                {{ $record->date }}</h6>
+                                                            <h6 class="card-subtitle mb-2 text-muted text-center">{{ $record->job }}</h6>
+                                                            <p class="card-text text-center">Shift: {{ $record->shift }}</p>
+                                                            <p class="card-text text-center">Total Number of People: {{ $record->total_num_people }}</p>
                                                         </a>
                                                         <p class="mb-4 text-sm">
                                                             <!-- Add your content here -->
