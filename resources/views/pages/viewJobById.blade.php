@@ -28,7 +28,7 @@
                                                 </a>
                                             </div>
                                             <div class="card-body p-3">
-                                                <h6 class="card-subtitle mb-2 text-center">{{ $date }}</h6>
+                                                <h6 class="card-subtitle mb-2 text-center">{{ \Carbon\Carbon::parse($date)->setTimezone('Europe/London')->format('d-m-y') }}</h6>
                                                 @foreach ($records as $record)
                                                     <h6 class="card-subtitle mb-2 text-muted text-center">{{ $record->job }}</h6>
                                                     <p class="card-text text-center">Shift: {{ $record->shift }}</p>
