@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <x-layout bodyClass="bg-gray-200">
     <div class="jumbotron jumbotron-fluid mb-0 bg-info text-white">
         <div class="container">
@@ -35,7 +36,7 @@
                                     <p class="mb-4 text-sm"> 
                                     </p>
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <a type="button" href ="{{ '/viewJob/'. $job->id }}" class="btn btn-outline-primary btn-sm mb-0">View Job</a>
+                                        <a type="button" href ="{{ '/viewJob/'. $job->id }}" class="btn btn-outline-primary btn-sm mb-0"><i class = "fa fa-users fa-2x"></i>View Workers</a>
                                         <div class="avatar-group mt-2">
                                             <a href="javascript:;" class="avatar avatar-xs rounded-circle"
                                                 data-bs-toggle="tooltip" data-bs-placement="bottom"
