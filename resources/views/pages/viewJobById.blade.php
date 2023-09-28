@@ -1,12 +1,38 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
 <x-layout bodyClass="g-sidenav-show bg-gray-200">
     <div class="jumbotron jumbotron-fluid mb-0 bg-info text-white">
         <div class="container">
             <h1 class="display-4 text-center" style="color:white;">Jobs Available</h1>
             <p class="lead text-center">
+                <button id="generate-pdf" class="btn btn-primary">Generate PDF For Todays Jobs</button>
                 <a class="btn btn-light btn-lg text-center" href="/">Back</a>
             </p>
         </div>
     </div>
+    <script>        
+            document.getElementById('generate-pdf').addEventListener('click', function () {
+        // Create a new jsPDF instance
+        const doc = new jsPDF();
+
+        // Loop through each card on the page
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            // Get the card content as HTML
+            const cardContent = card.innerHTML;
+
+            // Add a new page for each card except the first one
+            if (index > 0) {
+                doc.addPage();
+            }
+
+            // Add the card content to the PDF
+            doc.fromHTML(cardContent, 10, 10);
+        });
+
+        // Save or open the PDF
+        doc.save('jobs.pdf');
+    });
+</script>
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid px-2 px-md-4">
             <div class="row">
