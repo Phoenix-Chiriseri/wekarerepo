@@ -24,10 +24,7 @@
                                             <div class="d-flex">
                                                
                                             </div>
-                                            <div class="ms-auto w-20 d-flex align-items-end justify-content-end">
-                                                <img class="w-60 mt-2"
-                                                    src="{{ asset('assets') }}/img/logos/mastercard.png" alt="logo">
-                                            </div>
+                                          
                                         </div>
                                     </div>
                                 </div>
@@ -44,10 +41,10 @@
                                             </div>
                                         </div>
                                         <div class="card-body pt-0 p-3 text-center">
-                                            <h6 class="text-center mb-0">Salary</h6>
-                                            <span class="text-xs">Belong Interactive</span>
+                                            <h6 class="text-center mb-0">Jobs Count</h6>
+                                            <span class="text-xs"></span>
                                             <hr class="horizontal dark my-3">
-                                            <h5 class="mb-0">+$2000</h5>
+                                            <h5 class="mb-0">{{$numberOfJobs}}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -60,10 +57,9 @@
                                             </div>
                                         </div>
                                         <div class="card-body pt-0 p-3 text-center">
-                                            <h6 class="text-center mb-0">Paypal</h6>
-                                            <span class="text-xs">Freelance Payment</span>
+                                            <h6 class="text-center mb-0">Last Job Entered</h6>
                                             <hr class="horizontal dark my-3">
-                                            <h5 class="mb-0">$455.00</h5>
+                                            <h5 class="mb-0">{{$latest->job}}</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -108,73 +104,8 @@
                             </div>
                         </div>
                         <div class="card-body p-3 pb-0">
-                            <ul class="list-group">
-                                <li
-                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                    <div class="d-flex flex-column">
-                                        <h6 class="mb-1 text-dark font-weight-bold text-sm">March, 01, 2020</h6>
-                                        <span class="text-xs">#MS-415646</span>
-                                    </div>
-                                    <div class="d-flex align-items-center text-sm">
-                                        $180
-                                        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                                                class="material-icons text-lg position-relative me-1">picture_as_pdf</i>
-                                            PDF</button>
-                                    </div>
-                                </li>
-                                <li
-                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                    <div class="d-flex flex-column">
-                                        <h6 class="text-dark mb-1 font-weight-bold text-sm">February, 10, 2021</h6>
-                                        <span class="text-xs">#RV-126749</span>
-                                    </div>
-                                    <div class="d-flex align-items-center text-sm">
-                                        $250
-                                        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                                                class="material-icons text-lg position-relative me-1">picture_as_pdf</i>
-                                            PDF</button>
-                                    </div>
-                                </li>
-                                <li
-                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                    <div class="d-flex flex-column">
-                                        <h6 class="text-dark mb-1 font-weight-bold text-sm">April, 05, 2020</h6>
-                                        <span class="text-xs">#FB-212562</span>
-                                    </div>
-                                    <div class="d-flex align-items-center text-sm">
-                                        $560
-                                        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                                                class="material-icons text-lg position-relative me-1">picture_as_pdf</i>
-                                            PDF</button>
-                                    </div>
-                                </li>
-                                <li
-                                    class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-                                    <div class="d-flex flex-column">
-                                        <h6 class="text-dark mb-1 font-weight-bold text-sm">June, 25, 2019</h6>
-                                        <span class="text-xs">#QW-103578</span>
-                                    </div>
-                                    <div class="d-flex align-items-center text-sm">
-                                        $120
-                                        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                                                class="material-icons text-lg position-relative me-1">picture_as_pdf</i>
-                                            PDF</button>
-                                    </div>
-                                </li>
-                                <li
-                                    class="list-group-item border-0 d-flex justify-content-between ps-0 border-radius-lg">
-                                    <div class="d-flex flex-column">
-                                        <h6 class="text-dark mb-1 font-weight-bold text-sm">March, 01, 2019</h6>
-                                        <span class="text-xs">#AR-803481</span>
-                                    </div>
-                                    <div class="d-flex align-items-center text-sm">
-                                        $300
-                                        <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
-                                                class="material-icons text-lg position-relative me-1">picture_as_pdf</i>
-                                            PDF</button>
-                                    </div>
-                                </li>
-                            </ul>
+                            <img src="{{ asset('assets') }}/img/home-decor-1.jpg"
+                            alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                         </div>
                     </div>
                 </div>
@@ -189,6 +120,7 @@
                             </div>
                         </div>
                         <div class="card-body px-0 pb-2">
+                            
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
                                     <thead>
@@ -234,7 +166,9 @@
                                             </tr>
                                         @endforeach
                                     </tbody>
+                                    {{ $jobs->links() }}
                                 </table>
+                               
                             </div>
                         </div>
                     </div>

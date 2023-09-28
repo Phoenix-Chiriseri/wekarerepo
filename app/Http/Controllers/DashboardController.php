@@ -22,11 +22,13 @@ class DashboardController extends Controller
         //return the jobs to the front end
         //$countOfJobs = Db::table(Db::raw('select count(id) from jobs as jobCount'));
         //dd($countOfJobs);
-        $numberOfJobs = DB::select("SELECT count(id) FROM jobs");
+        $numberOfJobs = DB::table('jobs')->count();
+        $lastEnteredJob = DB::table('jobs')->latest()->first();
+        //dd($lastEnteredJob);
         //collect all the patients from the database
         //dd($numberOfJobs);
-        $jobs = Job::orderBy('id', 'desc')->get();
-        return view('dashboard.index')->with("jobs",$jobs)->with("numberOfJobs",$numberOfJobs);
+        $jobs = Job::orderBy('id', 'desc')->paginate(5);
+        return view('dashboard.index')->with("jobs",$jobs)->with("numberOfJobs",$numberOfJobs)->with("latest",$lastEnteredJob);
     }
 
     public function welcome(){
