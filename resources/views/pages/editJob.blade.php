@@ -1,5 +1,4 @@
 <x-layout bodyClass="g-sidenav-show bg-gray-200">
-
     <x-navbars.sidebar activePage="user-profile"></x-navbars.sidebar>
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <!-- Navbar -->

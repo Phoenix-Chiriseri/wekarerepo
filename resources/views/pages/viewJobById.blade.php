@@ -1,14 +1,20 @@
 <x-layout bodyClass="g-sidenav-show bg-gray-200">
-    <x-navbars.sidebar activePage="profile"></x-navbars.sidebar>
+    <div class="jumbotron jumbotron-fluid mb-0 bg-info text-white">
+        <div class="container">
+            <h1 class="display-4 text-center" style="color:white;">Jobs Available</h1>
+            <p class="lead text-center">
+                <a class="btn btn-light btn-lg text-center" href="/">Back</a>
+            </p>
+        </div>
+    </div>
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <!-- Navbar -->
-        <x-navbars.navs.auth titlePage='We Choose To Care'></x-navbars.navs.auth>
         <!-- End Navbar -->
         <div class="container-fluid px-2 px-md-4">
             <div class="row">
                 <div class="col-12 mt-4">
                     <div class="mb-5 ps-3">
-                        <h6 class="mb-1">Available Jobs</h6>
+                        <h6 class="mb-1 text-center">Available Jobs</h6>
                     </div>
                     @if ($jobsWithDetails->isEmpty())
                         <p>No job records found.</p>
@@ -25,7 +31,7 @@
                                                     <div class="card-header p-0 mt-n4 mx-6">
                                                         <a class="d-block shadow-xl border-radius-xl">
                                                             <!-- You can add your image here -->
-                        
+                                                            Date: {{ $record->date }}
                                                         </a>
                                                     </div>
                                                     <div class="card-body p-3">
