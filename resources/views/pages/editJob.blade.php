@@ -6,8 +6,8 @@
         <!-- End Navbar -->
         <div class="container-fluid px-2 px-md-4">
             <div class="page-header min-height-300 border-radius-xl mt-4"
-                style="background-image: url('https://img.freepik.com/free-psd/realistic-ribbon_23-2150596444.jpg?w=740&t=st=1695896974~exp=1695897574~hmac=61dec2de1afb5207241064758e6d6ac191568d1053a648cbcbb3c0006057429d');">
-                <span class="mask  bg-gradient-primary  opacity-6"></span>
+                style="background-image: url('{{ asset('assets/img/banna.jpg') }}');">
+
             </div>
             <div class="card card-body mx-3 mx-md-4 mt-n6">
                 <div class="row gx-4 mb-2">
@@ -69,9 +69,12 @@
                                 @enderror
                                 </div>  
                             </div>
-                            <div>
-                                For Adding Users Put Any Positive Number, For Removing Users Select Negative Number Of Users From DropDown
-                              </div>
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                <strong style="text">For Adding Users:</strong> Put any positive number.
+                                <br>
+                                <strong>For Removing Users:</strong> Select a negative number of users from the dropdown.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
                             <div class="row"> 
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label">Number Of People</label>
