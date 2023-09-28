@@ -8,8 +8,6 @@
         </div>
     </div>
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
-        <!-- Navbar -->
-        <!-- End Navbar -->
         <div class="container-fluid px-2 px-md-4">
             <div class="row">
                 <div class="col-12 mt-4">
@@ -21,42 +19,30 @@
                     @else
                         @foreach ($jobsWithDetails->groupBy('date') as $date => $records)
                             <div class="container">
-                                @if ($records->isEmpty())
-                                    <p>No job records found for this date.</p>
-                                @else
-                                    <div class="row shadow-lg">
-                                        @foreach ($records as $record)
-                                            <div class="col-md-12 mb-4">
-                                                <div class="card">
-                                                    <div class="card-header p-0 mt-n4 mx-6">
-                                                        <a class="d-block shadow-xl border-radius-xl">
-                                                            <!-- You can add your image here -->
-                                                           
-                                                        </a>
-                                                    </div>
-                                                    <div class="card-body p-3">
-                                                        <span class="badge text-bg-primary">Primary</span> 
-                                                        <a href="javascript:;">
-                                                            <h6 class="card-subtitle mb-2 text-center">
-                                                                {{ $record->date }}</h6>
-                                                            <h6 class="card-subtitle mb-2 text-muted text-center">{{ $record->job }}</h6>
-                                                            <p class="card-text text-center">Shift: {{ $record->shift }}</p>
-                                                            <p class="card-text text-center">Total Number of People: {{ $record->total_num_people }}</p>
-                                                        </a>
-                                                        <p class="mb-4 text-sm">
-                                                            <!-- Add your content here -->
-                                                        </p>
-                                                        <div class="d-flex align-items-center justify-content-between">
-                                                            <div class="avatar-group mt-2">
-                                                                <!-- Add your avatars here -->
-                                                            </div>
-                                                        </div>
+                                <div class="row shadow-lg">
+                                    <div class="col-md-12 mb-4">
+                                        <div class="card">
+                                            <div class="card-header p-0 mt-n4 mx-6">
+                                                <a class="d-block shadow-xl border-radius-xl">
+                                                    <!-- You can add your image here -->
+                                                </a>
+                                            </div>
+                                            <div class="card-body p-3">
+                                                <h6 class="card-subtitle mb-2 text-center">{{ $date }}</h6>
+                                                @foreach ($records as $record)
+                                                    <h6 class="card-subtitle mb-2 text-muted text-center">{{ $record->job }}</h6>
+                                                    <p class="card-text text-center">Shift: {{ $record->shift }}</p>
+                                                    <p class="card-text text-center">Total Number of People: {{ $record->total_num_people }}</p>
+                                                @endforeach
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="avatar-group mt-2">
+                                                        <!-- Add your avatars here -->
                                                     </div>
                                                 </div>
                                             </div>
-                                        @endforeach
+                                        </div>
                                     </div>
-                                @endif
+                                </div>
                             </div>
                         @endforeach
                     @endif
