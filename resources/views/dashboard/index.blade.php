@@ -153,10 +153,10 @@
                                             </tr>
                                         @endforeach
                                     </tbody>
-                                    {{ $jobs->links() }}
+                                    
                                 </table>
-                               
                             </div>
+                            {{ $jobs->links() }}
                         </div>
                     </div>
                 </div>
