@@ -16,9 +16,8 @@
                                         alt="">
                                     <span class="mask bg-gradient-dark opacity-10"></span>
                                     <div class="card-body position-relative z-index-1 p-3">
-                                        <i class="material-icons text-white p-2"></i>
                                         <h5 class="text-white mt-4 mb-5 pb-2">
-                                          We Choose To Care
+                                        Welcome {{$name}}
                                         </h5>
                                     </div>
                                 </div>
