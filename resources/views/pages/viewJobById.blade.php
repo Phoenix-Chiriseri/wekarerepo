@@ -31,13 +31,13 @@
                                                 </a>
                                             </div>
                                             <div class="card-body p-3">
-                                                <h6 class="card-subtitle mb-2 text-center">
+                                                <h6 class="card-subtitle mb-2 text-center" style="color:black;">
                                                     {{ \Carbon\Carbon::parse($date)->setTimezone('Europe/London')->format('l d-m-y') }}
                                                 </h6>
                                                 @foreach ($records as $record)
                                                     <div class="d-flex justify-content-between">
-                                                        <p class="card-text">Shift: {{ $record->shift }}</p>
-                                                        <p class="card-text">Number of Workers: {{ $record->total_num_people }}</p>
+                                                        <p class="card-text" style="color:black;">Shift: {{ $record->shift }}</p>
+                                                        <p class="card-text" style="color:black;">Number of Workers: {{ $record->total_num_people }}</p>
                                                     </div>
                                                 @endforeach
                                                 <div class="d-flex align-items-center justify-content-between mt-2">

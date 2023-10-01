@@ -1,20 +1,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<x-layout bodyClass="bg-gray-200">
-    <div class="jumbotron jumbotron-fluid mb-0 bg-info text-white">
-        <div class="container">
-            <h1 class="display-4 text-center" style="color:white;">Welcome to Our Job Listings</h1>
-            <p class="lead text-center">Select A Job Below</p>
-            <p class="lead text-center">
-                <a class="btn btn-light btn-lg text-center" href="https://wctc.care/about-me/" role="button">About Us</a>
-            </p>
-        </div>
-    </div>
-    <div class="main-content d-flex justify-content-center align-items-center bg-gray-100 max-height-vh-100 h-100">
-        <div class="container-fluid px-2 px-md-4">
-            <div class="row">
+<x-layout bodyClass="bg-gray-200" style="margin-top: 22px;">
+    <div class="main-content d-flex justify-content-center align-items-center bg-gray-100 min-vh-100">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
                 <div class="col-12 mt-4">
-                    <div class="mb-5 ps-3">
-                        <h6 class="mb-1 text-center">Available Jobs</h6>
+                    <div class="mb-5 ps-3 text-center">
+                        <h6 class="mb-1">Available Jobs</h6>
                     </div>
                     <div class="row justify-content-center">
                         @foreach ($jobs as $job)
@@ -68,10 +59,20 @@
                             </div>
                         </div>
                         @endforeach
-                        <br>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </x-layout>
+
+<style>
+    .main-content {
+        min-height: 100vh;
+    }
+
+    .card-blog {
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        border: none;
+    }
+</style>
