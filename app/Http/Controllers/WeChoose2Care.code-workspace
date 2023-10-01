@@ -4,7 +4,10 @@
 			"path": "../../.."
 		},
 		{
-			"path": "../../../../board-application"
+			"path": "../../../../ICRITHealthCare"
+		},
+		{
+			"path": "../../../../pia/laravel-pos-master/laravel-pos-master"
 		}
 	],
 	"settings": {}

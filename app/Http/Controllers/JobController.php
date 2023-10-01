@@ -23,11 +23,6 @@ class JobController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function dashboard()
-    {
-    
-    }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -66,9 +61,15 @@ class JobController extends Controller
     }
 
 
-    public function viewJobById($id){
-        
-        $jobId = Job::find($id)->id; // Get the job ID from the retrieved Job model
+    //view the job by an id and pass it to the view
+    public function viewJobById($id){        
+       
+        //get the job from the database using the id
+        $job = Job::find($id); 
+        //Get the job ID from the retrieved Job model
+        //get the job name and the job id
+        $jobId = $job->id;
+        $jobName = $job->job;
         $startDate = now()->toDateString();
         $endDate = now()->addDays(7)->toDateString();
         $jobsWithDetails = DB::table('jobs')
@@ -78,37 +79,7 @@ class JobController extends Controller
         ->whereBetween('job_details.date', [$startDate, $endDate])
         ->groupBy('jobs.job', 'job_details.date', 'job_details.shift')
         ->get();
-        return view('pages.viewJobById')->with('jobsWithDetails', $jobsWithDetails);
-    }
-    /**
-     * Display the specified resource.
-     */
-    public function show(Job $job)
-    {
-        //
+        return view('pages.viewJobById')->with('jobsWithDetails', $jobsWithDetails)->with("jobName",$jobName);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Job $job)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Job $job)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Job $job)
-    {
-        //
-    }
 }

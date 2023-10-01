@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\JobDetailsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,19 +17,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
-
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\SessionsController;
-use App\Http\Controllers\JobController;
-use App\Http\Controllers\JobDetailsController;
-            
-
 //Route::get('/', function () {return redirect('sign-in');})->middleware('guest');
 Route::get('/', [DashboardController::class, 'welcome'])->middleware('guest');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
@@ -41,7 +36,6 @@ Route::get('verify', function () {
 Route::get('/reset-password/{token}', function ($token) {
 	return view('sessions.password.reset', ['token' => $token]);
 })->middleware('guest')->name('password.reset');
-
 //routes for the application tied to the auth middleware
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/createJob', [JobController::class, 'index'])->name("createJob");

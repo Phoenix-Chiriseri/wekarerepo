@@ -1,38 +1,15 @@
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
 <x-layout bodyClass="g-sidenav-show bg-gray-200">
     <div class="jumbotron jumbotron-fluid mb-0 bg-info text-white">
         <div class="container">
-            <h1 class="display-4 text-center" style="color:white;">Jobs Available</h1>
+            <h1 class="display-4 text-center" style="color:white;">{{ $jobName }}</h1>
             <p class="lead text-center">
                 <button id="generate-pdf" class="btn btn-primary">Generate PDF For Todays Jobs</button>
                 <a class="btn btn-light btn-lg text-center" href="/">Back</a>
             </p>
         </div>
     </div>
-    <script>        
-            document.getElementById('generate-pdf').addEventListener('click', function () {
-        // Create a new jsPDF instance
-        const doc = new jsPDF();
-
-        // Loop through each card on the page
-        const cards = document.querySelectorAll('.card');
-        cards.forEach((card, index) => {
-            // Get the card content as HTML
-            const cardContent = card.innerHTML;
-
-            // Add a new page for each card except the first one
-            if (index > 0) {
-                doc.addPage();
-            }
-
-            // Add the card content to the PDF
-            doc.fromHTML(cardContent, 10, 10);
-        });
-
-        // Save or open the PDF
-        doc.save('jobs.pdf');
-    });
-</script>
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid px-2 px-md-4">
             <div class="row">
@@ -43,10 +20,10 @@
                     @if ($jobsWithDetails->isEmpty())
                         <p>No job records found.</p>
                     @else
-                        @foreach ($jobsWithDetails->groupBy('date') as $date => $records)
-                            <div class="container">
-                                <div class="row shadow-lg">
-                                    <div class="col-md-12 mb-4">
+                        <div class="container">
+                            <div class="row">
+                                @foreach ($jobsWithDetails->groupBy('date') as $date => $records)
+                                    <div class="col-md-3 mb-4">
                                         <div class="card">
                                             <div class="card-header p-0 mt-n4 mx-6">
                                                 <a class="d-block shadow-xl border-radius-xl">
@@ -54,26 +31,50 @@
                                                 </a>
                                             </div>
                                             <div class="card-body p-3">
-                                                <h6 class="card-subtitle mb-2 text-center">{{ \Carbon\Carbon::parse($date)->setTimezone('Europe/London')->format('d-m-y') }}</h6>
+                                                <h6 class="card-subtitle mb-2 text-center">
+                                                    {{ \Carbon\Carbon::parse($date)->setTimezone('Europe/London')->format('l d-m-y') }}
+                                                </h6>
                                                 @foreach ($records as $record)
-                                                    <h6 class="card-subtitle mb-2 text-muted text-center">{{ $record->job }}</h6>
-                                                    <p class="card-text text-center">Shift: {{ $record->shift }}</p>
-                                                    <p class="card-text text-center">Total Number of People: {{ $record->total_num_people }}</p>
+                                                    <div class="d-flex justify-content-between">
+                                                        <p class="card-text">Shift: {{ $record->shift }}</p>
+                                                        <p class="card-text">Number of Workers: {{ $record->total_num_people }}</p>
+                                                    </div>
                                                 @endforeach
-                                                <div class="d-flex align-items-center justify-content-between">
-                                                    <div class="avatar-group mt-2">
+                                                <div class="d-flex align-items-center justify-content-between mt-2">
+                                                    <div class="avatar-group">
                                                         <!-- Add your avatars here -->
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endforeach
                             </div>
-                        @endforeach
+                        </div>
                     @endif
                 </div>
             </div>
         </div>
     </div>
 </x-layout>
+
+<script>
+    document.getElementById('generate-pdf').addEventListener('click', function () {
+        // Create a new jsPDF instance
+        const doc = new jsPDF();
+        // Loop through each card on the page
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            // Get the card content as HTML
+            const cardContent = card.innerHTML;
+            // Add a new page for each card except the first one
+            if (index > 0) {
+                doc.addPage();
+            }
+            // Add the card content to the PDF
+            doc.fromHTML(cardContent, 10, 10);
+        });
+        // Save or open the PDF
+        doc.save('jobs.pdf');
+    });
+</script>

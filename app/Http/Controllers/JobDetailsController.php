@@ -43,7 +43,6 @@ class JobDetailsController extends Controller
      */
     public function createJobDetails(Request $request)
     {
-        //
         // Validate the form data
         //store the job with the details
         $validatedData = $request->validate([
@@ -67,32 +66,4 @@ class JobDetailsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(JobDetails $jobDetails)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(JobDetails $jobDetails)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, JobDetails $jobDetails)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(JobDetails $jobDetails)
-    {
-        //
-    }
 }
