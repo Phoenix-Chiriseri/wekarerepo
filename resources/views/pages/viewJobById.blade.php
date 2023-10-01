@@ -1,4 +1,3 @@
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
 <x-layout bodyClass="g-sidenav-show bg-gray-200">
     <div class="jumbotron jumbotron-fluid mb-0 bg-info text-white">
@@ -31,14 +30,19 @@
                                                 </a>
                                             </div>
                                             <div class="card-body p-3">
-                                                <h6 class="card-subtitle mb-2 text-center" style="color:black;">
+                                                <h6 class="card-subtitle mb-2 text-center" style="color:black; text-decoration: underline;"> <!-- Add 'text-decoration: underline;' to underline the date -->
                                                     {{ \Carbon\Carbon::parse($date)->setTimezone('Europe/London')->format('l d-m-y') }}
                                                 </h6>
                                                 @foreach ($records as $record)
                                                     <div class="d-flex justify-content-between">
-                                                        <p class="card-text" style="color:black;">Shift: {{ $record->shift }}</p>
-                                                        <p class="card-text" style="color:black;">Number of Workers: {{ $record->total_num_people }}</p>
+                                                        <h6 class="card-text" style="color:black;">Shift:</h6>
+                                                        <p class="card-text" style="color:black;">{{ $record->shift }}</p>
                                                     </div>
+                                                    <div class="d-flex justify-content-between">
+                                                        <h6 class="card-text" style="color:black;">Total Number of People:</h6>
+                                                        <p class="card-text" style="color:black;">{{ $record->total_num_people }}</p>
+                                                    </div>
+                                                    <hr> <!-- Add this line to insert an <hr> after each record -->
                                                 @endforeach
                                                 <div class="d-flex align-items-center justify-content-between mt-2">
                                                     <div class="avatar-group">
