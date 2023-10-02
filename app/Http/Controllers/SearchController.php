@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
-    //
-
     public function searchJob(Request $request){
 
         //validate the data
@@ -18,9 +16,12 @@ class SearchController extends Controller
             'search_job' => 'required|string|max:255', // Adjust validation rules as needed
         ]); 
         //search the job and store it in a variable
-        $job = $request->input("search_job");
+        $requestedJob = $request->input("search_job");
         $jobs = DB::table('jobs')
-                ->where('job',$job)->get();
+                ->where('job',$requestedJob)->get();
+        if(!$jobs){
+            echo "No Job Found";
+        }
         return view("welcome")->with("jobs",$jobs);        
     }
 }

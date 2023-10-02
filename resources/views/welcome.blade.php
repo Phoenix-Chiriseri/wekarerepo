@@ -25,7 +25,7 @@
                     </div>
                     <div class="row justify-content-center">
                         @foreach ($jobs as $job)
-                        <div class="col-xl-3 col-md-6 mb-xl-4 mb-4">
+                        <div class="col-xl-4 col-md-6 mb-xl-4 mb-4">
                             <div class="card card-blog card-plain">
                                 <div class="card-header p-0 mt-n4 mx-3">
                                     <a class="d-block shadow-xl border-radius-xl">
