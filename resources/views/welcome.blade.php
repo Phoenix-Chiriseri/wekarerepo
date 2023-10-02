@@ -24,36 +24,42 @@
                                             {{ $job->job }}
                                         </h5>
                                     </a>
-                                    <p class="mb-4 text-sm"> 
+                                    <p class="mb-2 text-sm"> 
                                     </p>
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <a type="button" href ="{{ '/viewJob/'. $job->id }}" class="btn btn-outline-primary btn-sm mb-0"><i class = "fa fa-users fa-2x"></i>View Workers</a>
-                                        <div class="avatar-group mt-2">
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title="">
-                                                <img alt="Image placeholder"
-                                                    src="{{ asset('assets') }}/img/team-1.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title="">
-                                                <img alt="Image placeholder"
-                                                    src="{{ asset('assets') }}/img/team-2.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title="">
-                                                <img alt="Image placeholder"
-                                                    src="{{ asset('assets') }}/img/team-3.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title="">
-                                                <img alt="Image placeholder"
-                                                    src="{{ asset('assets') }}/img/team-4.jpg">
-                                            </a>
+                                        <div>
+                                            <p class="mb-1 text-sm">Job Created At (UK Time):</p>
+                                            <p class="text-sm">
+                                                {{ \Carbon\Carbon::parse($job->created_at)->setTimezone('Europe/London')->format('l d-m-y H:i:s') }}
+                                            </p>
                                         </div>
+                                        <a type="button" href="{{ '/viewJob/'. $job->id }}" class="btn btn-outline-primary btn-sm mb-0"><i class="fa fa-users fa-2x"></i>View Workers</a>
+                                    </div>
+                                    <div class="avatar-group mt-2">
+                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle"
+                                            data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                            title="">
+                                            <img alt="Image placeholder"
+                                                src="{{ asset('assets') }}/img/team-1.jpg">
+                                        </a>
+                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle"
+                                            data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                            title="">
+                                            <img alt="Image placeholder"
+                                                src="{{ asset('assets') }}/img/team-2.jpg">
+                                        </a>
+                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle"
+                                            data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                            title="">
+                                            <img alt="Image placeholder"
+                                                src="{{ asset('assets') }}/img/team-3.jpg">
+                                        </a>
+                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle"
+                                            data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                            title="">
+                                            <img alt="Image placeholder"
+                                                src="{{ asset('assets') }}/img/team-4.jpg">
+                                        </a>
                                     </div>
                                 </div>
                             </div>

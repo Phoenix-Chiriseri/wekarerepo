@@ -118,34 +118,34 @@
                                 <table class="table align-items-center mb-0">
                                     <thead>
                                         <tr>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Name</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Created At</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Updated At</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Add Job Details</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Delete Job</th>
+                                            <th class="text-uppercase  text-xxs font-weight-bolder" style="color:black;">Name</th>
+                                            <th class="text-uppercase  text-xxs font-weight-bolder" style="color:black;">Created At</th>
+                                            <th class="text-uppercase  text-xxs font-weight-bolder" style="color:black;">Updated At</th>
+                                            <th class="text-uppercase  text-xxs font-weight-bolder" style="color:black;">Add Job Details</th>
+                                            <th class="text-uppercase  text-xxs font-weight-bolder" style="color:black;">Delete Job</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($jobs as $job)
                                             <tr>
                                                 <td>
-                                                    <p class="text-xs font-weight-bold mb-0">{{ $job->job }}</p>
+                                                    <p class="text-xs font-weight-bold mb-0" style="color:black;">{{ $job->job }}</p>
                                                 </td>
                                                 <td>
-                                                    <p class="text-xs text-secondary mb-0">{{ $job->created_at }}</p>
+                                                    <p class="text-xs text-secondary mb-0" style="color:black;">{{ $job->created_at }}</p>
                                                 </td>
                                                 <td>
-                                                    <p class="text-xs text-secondary mb-0">{{ $job->updated_at }}</p>
+                                                    <p class="text-xs text-secondary mb-0" style="color:black;">{{ $job->updated_at }}</p>
                                                 </td>
                                                 <td class="align-middle">
                                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                        data-toggle="tooltip" data-original-title="Edit user">
+                                                        data-toggle="tooltip" data-original-title="Edit user" style="color:black;">
                                                         <a href="{{ '/editJob/'. $job->id }}" class = "btn btn-danger btn-link">Add</a>
                                                     </a>
                                                 </td>
                                                 <td class="align-middle">
                                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                        data-toggle="tooltip" data-original-title="Edit user">
+                                                        data-toggle="tooltip" data-original-title="Edit user" style="color:black;">
                                                         <a href="{{ '/deleteJob/'. $job->id }}" class = "btn btn-info btn-link">Delete</a>
                                                     </a>
                                                 </td>
