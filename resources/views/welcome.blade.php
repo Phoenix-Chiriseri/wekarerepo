@@ -5,7 +5,7 @@
             <div class="row justify-content-center">
                 <div class="col-12 mt-4">
                     <div class="mb-5 ps-3 text-center">
-                        <h6 class="mb-1">Available Jobs</h6>
+                        <h4 class="mb-1">Available Jobs</h4>
                     </div>
                     <div class="row justify-content-center">
                         @foreach ($jobs as $job)
@@ -28,8 +28,8 @@
                                     </p>
                                     <div class="d-flex align-items-center justify-content-between">
                                         <div>
-                                            <p class="mb-1 text-sm">Job Created At (UK Time):</p>
-                                            <p class="text-sm">
+                                            <p class="mb-1 text-sm" style="color:black;">Job Created At (UK Time):</p>
+                                            <p class="text-sm" style="color: black;">
                                                 {{ \Carbon\Carbon::parse($job->created_at)->setTimezone('Europe/London')->format('l d-m-y H:i:s') }}
                                             </p>
                                         </div>
