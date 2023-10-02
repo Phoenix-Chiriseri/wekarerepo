@@ -7,14 +7,14 @@
         <!-- End Navbar -->
         <div class="container-fluid px-2 px-md-4">
             <div class="page-header min-height-300 border-radius-xl mt-4"
-            style="background-image: url('{{ asset('assets/img/banna.jpg') }}'); background-size: cover;">
+            style="background-image: url('{{ asset('assets/img/banna.png') }}'); background-size: cover;">
 
             </div>
             <div class="card card-body mx-3 mx-md-4 mt-n6" style="box-shadow:2px 2px 4px 4px; black;">
                 <div class="row gx-4 mb-2">
                     <div class="col-auto">
                         <div class="avatar avatar-xl position-relative">
-                            <img src="{{ asset('assets') }}/img/wctclogo.png" alt="profile_image"
+                            <img src="{{ asset('assets') }}/img/wekareLogo.png" alt="profile_image"
                                 class="w-100 border-radius-lg shadow-sm">
                         </div>
                     </div>

@@ -1,5 +1,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <x-layout bodyClass="bg-gray-200" style="margin-top: 22px;">
+    <div class="container" style="margin-top: 100px;">
+        <div class="row mx-auto">
+            <div class="col-md-6 offset-md-2">
+                <form action="{{ route('search-job') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <input type="text" class="form-control border border-2 p-2" id="textbox" name="search_job" placeholder="Search Job">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-success">Search</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>    
     <div class="main-content d-flex justify-content-center align-items-center bg-gray-100 min-vh-100">
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -13,7 +29,7 @@
                             <div class="card card-blog card-plain">
                                 <div class="card-header p-0 mt-n4 mx-3">
                                     <a class="d-block shadow-xl border-radius-xl">
-                                        <img src="{{ asset('assets') }}/img/wctclogo.png"
+                                        <img src="{{ asset('assets') }}/img/weKareLogo.png"
                                             alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                                     </a>
                                 </div>
@@ -33,7 +49,7 @@
                                                 {{ \Carbon\Carbon::parse($job->created_at)->setTimezone('Europe/London')->format('l d-m-y H:i:s') }}
                                             </p>
                                         </div>
-                                        <a type="button" href="{{ '/viewJob/'. $job->id }}" class="btn btn-outline-primary btn-sm mb-0"><i class="fa fa-users fa-2x"></i>View Workers</a>
+                                        <a type="button" href="{{ '/viewJob/'. $job->id }}" class="btn btn-success btn-sm mb-0"><i class="fa fa-users fa-2x"></i>View Workers</a>
                                     </div>
                                     <div class="avatar-group mt-2">
                                         <a href="javascript:;" class="avatar avatar-xs rounded-circle"

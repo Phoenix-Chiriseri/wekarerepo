@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobDetailsController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,7 @@ Route::post('sign-up', [RegisterController::class, 'store'])->middleware('guest'
 Route::get('sign-in', [SessionsController::class, 'create'])->middleware('guest')->name('login');
 Route::post('sign-in', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('verify', [SessionsController::class, 'show'])->middleware('guest');
+Route::post('search-job', [SearchController::class, 'searchJob'])->name("search-job");
 Route::post('reset-password', [SessionsController::class, 'update'])->middleware('guest')->name('password.update');
 Route::get('verify', function () {
 	return view('sessions.password.verify');
@@ -48,5 +50,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('/submitChangeJobName/{$id}', [JobController::class, 'submitChangeJobName'])->name('submitChangeJobName');
 	Route::post('sign-out', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 	Route::get('profile', [ProfileController::class, 'create'])->middleware('auth')->name('profile');
-	Route::post('user-profile', [ProfileController::class, 'update'])->middleware('auth');
+	Route::post('user-profile', [ProfileController::class, 'update']);
 });

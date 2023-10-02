@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../../../../pia/laravel-pos-master/laravel-pos-master"
+		},
+		{
+			"path": "../../../../UserVerificationProject copy/UserVerificationProject copy"
 		}
 	],
 	"settings": {}

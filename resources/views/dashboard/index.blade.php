@@ -29,7 +29,7 @@
                                     <div class="card">
                                         <div class="card-header mx-4 p-3 text-center">
                                             <div
-                                                class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                class="icon icon-shape icon-lg bg-gradient-success shadow text-center border-radius-lg">
                                                 <i class="material-icons opacity-10">account_balance</i>
                                             </div>
                                         </div>
@@ -45,7 +45,7 @@
                                     <div class="card">
                                         <div class="card-header mx-4 p-3 text-center">
                                             <div
-                                                class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+                                                class="icon icon-shape icon-lg bg-gradient-success shadow text-center border-radius-lg">
                                                 <i class="material-icons opacity-10">account_balance_wallet</i>
                                             </div>
                                         </div>
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                         <div class="card-body p-3 pb-0">
-                            <img src="{{ asset('assets') }}/img/wctclogo.png"
+                            <img src="{{ asset('assets') }}/img/wekareLogo.png"
                             alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
                         </div>
                     </div>
