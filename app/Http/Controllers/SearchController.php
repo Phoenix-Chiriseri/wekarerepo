@@ -18,7 +18,8 @@ class SearchController extends Controller
         //search the job and store it in a variable
         $requestedJob = $request->input("search_job");
         $jobs = DB::table('jobs')
-                ->where('job',$requestedJob)->get();
+        ->where('job', 'like', '%' . $requestedJob . '%')
+        ->get();    
         if(!$jobs){
             echo "No Job Found";
         }
