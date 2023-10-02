@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-success">Search</button>
+                    <button type="submit" class="btn btn-success btn-sm">Search</button>
                 </div>
                 </form>
             </div>
