@@ -65,7 +65,7 @@
             </div>
         </div>
     </div>  
-    <div class="main-content d-flex justify-content-center align-items-center bg-gray-100 min-vh-100" style="margin-top: -50px;">
+    <div class="main-content d-flex justify-content-center align-items-center bg-gray-100 min-vh-100" style="margin-top: -200px;">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12 mt-4">
@@ -76,13 +76,11 @@
                         <div class="col-xl-4 col-md-6 mb-xl-4 mb-4">
                             <div class="card card-cascade narrower">
                                 <!-- Card image -->
-                                <div class="view view-cascade overlay">
-                                   
+                                <div class="view view-cascade overlay">      
                                     <a>
                                         <div class="mask rgba-white-slight"></div>
                                     </a>
                                 </div>
-                                
                                 <!-- Card content -->
                                 <div class="card-body card-body-cascade">
                                     <p class="mb-0 text-sm">Job Name</p>
