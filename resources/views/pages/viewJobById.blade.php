@@ -1,14 +1,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
 <x-layout bodyClass="g-sidenav-show bg-gray-200">
-    <div class="jumbotron jumbotron-fluid mb-0 bg-info text-white">
+    <div class="jumbotron jumbotron-fluid mb-0 bg-info text-white py-4">
         <div class="container">
-            <h1 class="display-4 text-center" style="color:white;">{{ $jobName }}</h1>
+            <h2 class="display-5 text-center" style="color:white;git ">{{ $jobName }}</h2>
             <p class="lead text-center">
-                <button id="generate-pdf" class="btn btn-primary">Generate PDF For Todays Jobs</button>
-                <a class="btn btn-light btn-lg text-center" href="/">Back</a>
+                <button id="generate-pdf" class="btn btn-primary">Generate PDF For Today's Jobs</button>
+                <a class="btn btn-light btn-lg" href="/">Back</a>
             </p>
         </div>
     </div>
+    
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid px-2 px-md-4">
             <div class="row">
