@@ -1,4 +1,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <x-layout bodyClass="g-sidenav-show  bg-gray-200">
     <x-navbars.sidebar activePage="tables"></x-navbars.sidebar>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -12,7 +13,7 @@
                     width: 190
                 });
                 // Save the PDF
-                doc.save('DailyReport.pdf');
+                doc.save('JobsReport.pdf');
             }
             </script>
         <!-- Navbar -->
@@ -33,6 +34,8 @@
                                         <h5 class="text-white mt-4 mb-5 pb-2">
                                         Welcome {{$name}}
                                         </h5>
+                                        <hr>
+                                        <button onclick="generatePDF()" class = "btn btn-success btn-lg"><i class = "fa fa-print"></i>Export Jobs List</button>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +125,6 @@
                 </div>
             </div>
         <div class="container-fluid py-4">
-            <button onclick="generatePDF()" class = "btn btn-success btn-lg"><i class = "fa fa-print"></i>Generate PDF</button>
             <div class="row">
                 <div class="col-12">
                     <div class="card my-4">
@@ -150,21 +152,21 @@
                                                     <p class="text-xs font-weight-bold mb-0" style="color:black;">{{ $job->job }}</p>
                                                 </td>
                                                 <td>
-                                                    <p class="text-xs text-secondary mb-0" style="color:black;">{{ $job->created_at }}</p>
+                                                    <p class="text-xs  mb-0" style="color:black;">{{ $job->created_at }}</p>
                                                 </td>
                                                 <td>
-                                                    <p class="text-xs text-secondary mb-0" style="color:black;">{{ $job->updated_at }}</p>
+                                                    <p class="text-xs mb-0" style="color:black;">{{ $job->updated_at }}</p>
                                                 </td>
                                                 <td class="align-middle">
                                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Edit user" style="color:black;">
-                                                        <a href="{{ '/editJob/'. $job->id }}" class = "btn btn-danger btn-link">Add</a>
+                                                        <a href="{{ '/editJob/'. $job->id }}" class = "btn btn btn-outline-dark"><i class = "fa fa-plus"></i>Add</a>
                                                     </a>
                                                 </td>
                                                 <td class="align-middle">
                                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Edit user" style="color:black;">
-                                                        <a href="{{ '/deleteJob/'. $job->id }}" class = "btn btn-info btn-link">Delete</a>
+                                                        <a href="{{ '/deleteJob/'. $job->id }}" class = "btn btn-dark btn-link"><i class = "fa fa-trash"></i>Delete</a>
                                                     </a>
                                                 </td>
                                             </tr>
