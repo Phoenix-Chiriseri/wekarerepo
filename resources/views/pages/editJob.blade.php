@@ -69,12 +69,8 @@
                                 @enderror
                                 </div>  
                             </div>
-                            <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                <strong style="text">For Adding Users:</strong> Put any positive number.
-                                <br>
-                                <strong>For Removing Users:</strong> Select a negative number of users from the dropdown.
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
+                            <p class = "text-center"><strong class = "text-center">For Adding Users:</strong> Put any positive number.</p>
+                            <p class = "text-center"><strong class = "text-center">For Removing Users:</strong> Select a negative number of users from the dropdown.</p>
                             <div class="row"> 
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label">Number Of People</label>

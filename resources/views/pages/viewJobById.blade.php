@@ -29,7 +29,7 @@
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="/">{{ $jobName }}</a>
+                <a class="nav-link" href="">{{ $jobName }}</a>
               </li>
             </ul>
             <!-- Left links -->
@@ -62,6 +62,7 @@
                 <div class="col-12 mt-4">
                     <div class="mb-5 ps-3">
                         <h4 class="mb-1 text-center" style="text-decoration: underline;">Scroll Down To See All Available Jobs</h4>
+                        <a href= "/">Hello World</a>
                     </div>
                     @if ($jobsWithDetails->isEmpty())
                         <p>No job records found.</p>
