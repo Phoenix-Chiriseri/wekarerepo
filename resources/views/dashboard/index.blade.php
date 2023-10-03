@@ -2,6 +2,19 @@
 <x-layout bodyClass="g-sidenav-show  bg-gray-200">
     <x-navbars.sidebar activePage="tables"></x-navbars.sidebar>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <script>
+            function generatePDF() {
+                var doc = new jsPDF();
+                // HTML content to be converted
+                var htmlContent = document.getElementById('pdf-content').innerHTML;
+                doc.text('Daily Statistics Report', 10, 10); // Title
+                doc.fromHTML(htmlContent, 10, 20, {
+                    width: 190
+                });
+                // Save the PDF
+                doc.save('DailyReport.pdf');
+            }
+            </script>
         <!-- Navbar -->
         <x-navbars.navs.auth titlePage="All Jobs"></x-navbars.navs.auth>
         <!-- End Navbar -->
@@ -109,6 +122,7 @@
                 </div>
             </div>
         <div class="container-fluid py-4">
+            <button onclick="generatePDF()" class = "btn btn-info"><i class = "fa fa-print"></i>Generate PDF</button>
             <div class="row">
                 <div class="col-12">
                     <div class="card my-4">
@@ -118,9 +132,8 @@
                             </div>
                         </div>
                         <div class="card-body px-0 pb-2">
-                            
                             <div class="table-responsive p-0">
-                                <table class="table align-items-center mb-0">
+                                <table class="table align-items-center mb-0"  id = "pdf-content">
                                     <thead>
                                         <tr>
                                             <th class="text-uppercase  text-xxs font-weight-bolder" style="color:black;">Name</th>
