@@ -24,9 +24,7 @@
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Choose Option</h6>
-            </li>
+            <hr>
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'dashboard' ? ' active bg-gradient-primary' : '' }} btn btn-secondary" href="{{ route('createJob') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
