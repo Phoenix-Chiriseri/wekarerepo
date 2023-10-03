@@ -1,6 +1,53 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
 <x-layout bodyClass="g-sidenav-show bg-gray-200">
-    <div class="jumbotron jumbotron-fluid mb-0 bg-info text-white py-4">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+          <!-- Toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <!-- Collapsible wrapper -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Navbar brand -->
+            <a class="navbar-brand mt-2 mt-lg-0" href="/">
+              <img
+                src="{{ asset('assets') }}/img/weKareLogo.png"
+                height="15"
+                alt="MDB Logo"
+                loading="lazy"
+              />
+            </a>
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="/">{{ $jobName }}</a>
+              </li>
+            </ul>
+            <!-- Left links -->
+          </div>
+          <!-- Collapsible wrapper -->
+      
+          <!-- Right elements -->
+          <div class="d-flex align-items-center">
+            <!-- Icon -->
+            <a class="text-reset me-3" href="#">
+              <i class="fas fa-briefcase"></i>
+            </a>
+            <!-- Notifications -->
+            <!-- Avatar -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+    <!--<div class="jumbotron jumbotron-fluid mb-0 bg-info text-white py-1">
         <div class="container">
             <h2 class="display-5 text-center" style="color:white;git ">{{ $jobName }}</h2>
             <p class="lead text-center">
@@ -8,13 +55,13 @@
                 <a class="btn btn-light btn-lg" href="/">Back</a>
             </p>
         </div>
-    </div>
+    </div>!-->
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid px-2 px-md-4">
             <div class="row">
                 <div class="col-12 mt-4">
                     <div class="mb-5 ps-3">
-                        <h6 class="mb-1 text-center">Available Jobs</h6>
+                        <h4 class="mb-1 text-center" style="text-decoration: underline;">Scroll Down To See All Available Jobs</h4>
                     </div>
                     @if ($jobsWithDetails->isEmpty())
                         <p>No job records found.</p>
