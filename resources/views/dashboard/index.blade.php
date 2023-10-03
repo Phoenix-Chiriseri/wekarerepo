@@ -53,8 +53,12 @@
                                         <div class="card-body pt-0 p-3 text-center">
                                             <h6 class="text-center mb-0">Last Job Entered</h6>
                                             <hr class="horizontal dark my-3">
-                                            <h5 class="mb-0">{{$latest->job}}</h5>
-                                        </div>
+                                            @if($latest)
+                                                <h5 class="mb-0">{{ $latest->job }}</h5>
+                                            @else
+                                                <h5 class="mb-0">No Job Found</h5>
+                                            @endif
+                                            </div>
                                     </div>
                                 </div>
                             </div>

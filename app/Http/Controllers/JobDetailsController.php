@@ -19,7 +19,8 @@ class JobDetailsController extends Controller
             return redirect()->route('dashboard')->with('success', 'Job deleted successfully');
         } else {
             // Handle the case where the job with the given ID was not found
-            return redirect()->route('jobs.index')->with('error', 'Job not found');
+            //return view('pages.nojobsfound');
+            return redirect()->route('nojobsfound')->with('success', 'No jobs Found');
         }
     }
 
