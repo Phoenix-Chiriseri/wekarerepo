@@ -71,7 +71,7 @@ class JobController extends Controller
         $jobId = $job->id;
         $jobName = $job->job;
         $startDate = now()->toDateString();
-        $endDate = now()->addDays(7)->toDateString();
+        $endDate = now()->addDays(6)->toDateString();
         $jobsWithDetails = DB::table('jobs')
         ->leftJoin('job_details', 'jobs.id', '=', 'job_details.job_id')
         ->select('jobs.job', 'job_details.date', 'job_details.shift', DB::raw('SUM(job_details.num_people)   as total_num_people'))
