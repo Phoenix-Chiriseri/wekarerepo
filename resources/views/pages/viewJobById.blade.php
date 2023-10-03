@@ -9,7 +9,6 @@
             </p>
         </div>
     </div>
-    
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <div class="container-fluid px-2 px-md-4">
             <div class="row">

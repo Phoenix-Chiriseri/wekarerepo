@@ -65,12 +65,11 @@
             </div>
         </div>
     </div>  
-    <div class="main-content d-flex justify-content-center align-items-center bg-gray-100 min-vh-100">
+    <div class="main-content d-flex justify-content-center align-items-center bg-gray-100 min-vh-100" style="margin-top: -50px;">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12 mt-4">
                     <div class="mb-5 ps-3 text-center">
-                        <h4 class="mb-1">Available Jobs</h4>
                     </div>
                     <div class="row justify-content-center">
                         @foreach ($jobs as $job)
@@ -78,8 +77,7 @@
                             <div class="card card-cascade narrower">
                                 <!-- Card image -->
                                 <div class="view view-cascade overlay">
-                                    <img src="{{ asset('assets') }}/img/weKareLogo.png" class="card-img-top"
-                                        alt="img-blur-shadow">
+                                   
                                     <a>
                                         <div class="mask rgba-white-slight"></div>
                                     </a>
