@@ -11,7 +11,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-
         $numberOfJobs = DB::table('jobs')->count();
         $lastEnteredJob = DB::table('jobs')->latest()->first();
         $jobs = Job::orderBy('id', 'desc')->paginate(5);

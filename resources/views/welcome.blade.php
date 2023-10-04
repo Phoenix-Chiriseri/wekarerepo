@@ -95,7 +95,7 @@
                                                 {{ \Carbon\Carbon::parse($job->created_at)->setTimezone('Europe/London')->format('l d-m-y H:i:s') }}
                                             </p>
                                         </div>
-                                        <a type="button" href="{{ '/viewJob/'. $job->id }}" class="btn btn-success btn-sm mb-0"><i class="fa fa-users fa-2x"></i>View Workers</a>
+                                        <a href="{{route('viewJob', $job->id)}}" class="btn btn-success">View Job</a>
                                     </div>
                                     <div class="avatar-group mt-2">
                                         <!-- Add your avatar images here -->

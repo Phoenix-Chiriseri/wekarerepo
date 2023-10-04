@@ -24,7 +24,7 @@ Route::get('/', function () {
 Route::get('/', function () {return redirect('sign-in');})->middleware('guest');
 Route::get('/', [DashboardController::class, 'welcome'])->middleware('guest');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
-Route::get('/viewJob/{id}', [JobController::class, 'viewJobById']);
+Route::get('/viewJob/{id}', [JobController::class, 'viewJobById'])->name("viewJob");
 Route::get('sign-up', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 Route::post('sign-up', [RegisterController::class, 'store'])->middleware('guest');
 Route::get('sign-in', [SessionsController::class, 'create'])->middleware('guest')->name('login');
