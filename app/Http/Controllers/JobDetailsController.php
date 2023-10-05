@@ -10,8 +10,7 @@ use Auth;
 
 class JobDetailsController extends Controller
 {
-
-    public function deleteJob($id){
+   public function deleteJob($id){
         $job = Job::find($id);
         if ($job) {
             $job->delete();      
@@ -26,6 +25,7 @@ class JobDetailsController extends Controller
 
     public function editJob($id)
     {
+        
         $name = Auth::user()->name;
         $job = Job::find($id);
         $shiftOptions = [
@@ -34,6 +34,7 @@ class JobDetailsController extends Controller
             'night' => 'Night Shift',
             'long' => 'Long Day',
         ];
+        //dd($job);
         return view('pages.editJob')->with("shiftOptions",$shiftOptions)->with("job",$job)->with(
         "name",$name
         );   
@@ -52,7 +53,6 @@ class JobDetailsController extends Controller
            'num_people' => 'required|integer',
            'shift' => 'required|string',
        ]);
-
        // Create a new job detail
        $jobDetail = new JobDetails();
        $jobDetail->job_id = $request->input('id');

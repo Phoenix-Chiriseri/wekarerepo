@@ -8,19 +8,11 @@ use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobDetailsController;
 use App\Http\Controllers\SearchController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/', function () {return redirect('sign-in');})->middleware('guest');
 Route::get('/', [DashboardController::class, 'welcome'])->middleware('guest');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
@@ -42,8 +34,8 @@ Route::get('/reset-password/{token}', function ($token) {
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/createJob', [JobController::class, 'index'])->name("createJob");
     Route::post('/submitJob', [JobController::class, 'store'])->name("submitJob");
-    Route::get('/deleteJob/{id}', [JobDetailsController::class, 'deleteJob']);
-	Route::get('/editJob/{id}', [JobDetailsController::class, 'editJob']);
+    Route::get('/deleteJob/{id}', [JobDetailsController::class, 'deleteJob'])->name("deleteJob");
+	Route::get('/editJob/{id}', [JobDetailsController::class, 'editJob'])->name("editJob");
 	Route::get('/changeName/{id}', [JobController::class, 'changeJobName']);
 	Route::post('/submitJobDetails', [JobDetailsController::class, 'createJobDetails'])->name('submitJobDetails');
 	Route::put('/submitChangeJobName/{$id}', [JobController::class, 'submitChangeJobName'])->name('submitChangeJobName');
