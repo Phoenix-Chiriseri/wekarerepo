@@ -41,20 +41,20 @@
                         </div>
                     </div>
                 </div>
+                @if (!$jobWithDetails)
+                <h1 class="text-center">No Job Found</h1>
+                 @else
                 <ul class="list-group mt-4">
-                    @if(!$jobWithDetails)
-                    <h1 class = "text-center">No Job Found</h1>
-                     @else
-                     @foreach ($jobWithDetails as $detail)
-                     <li class="list-group-item">
-                         <p><strong>Job:</strong> {{ $detail->job }}</p>
-                         <p><strong>Date:</strong> {{ $detail->date }}</p>
-                         <p><strong>Shift:</strong> {{ $detail->shift }}</p>
-                         <p><strong>Total Number of People:</strong> {{ $detail->total_num_people }}</p>
-                     </li>
+                    @foreach ($jobWithDetails as $detail)
+                        <li class="list-group-item">
+                            <p><strong>Job:</strong> {{ $detail->job }}</p>
+                            <p><strong>Date:</strong> {{ $detail->date }}</p>
+                            <p><strong>Shift:</strong> {{ $detail->shift }}</p>
+                            <p><strong>Total Number of People:</strong> {{ $detail->total_num_people }}</p>
+                        </li>
                     @endforeach
-                    @endif
                 </ul>
+            @endif
             </div>
         </div>
         <x-footers.auth></x-footers.auth>

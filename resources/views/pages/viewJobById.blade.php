@@ -62,7 +62,7 @@
                 <div class="col-12 mt-4">
                     <div class="mb-5 ps-3">
                         <h4 class="mb-1 text-center" style="text-decoration: underline;">Scroll Down To See All Available Jobs</h4>
-                        <a href= "/">Hello World</a>
+                       
                     </div>
                     @if ($jobsWithDetails->isEmpty())
                         <p>No job records found.</p>

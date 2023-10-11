@@ -98,7 +98,6 @@
                             <input type="hidden" value = "{{$job->id}}" name="id">
                             <br>
                             <button type="submit" class="btn bg-gradient-dark">Submit</button>
-                            <button type="submit" class="btn bg-gradient-dark" formaction="{{ route('search-data') }}">Search Number Of People</button>
                             <a href="{{ route('dashboard') }}" class="btn btn-outline-dark">Back</a>
                         </form>
                     </div>
