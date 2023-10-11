@@ -15,6 +15,8 @@ class JobDetailsController extends Controller
 
 
     public function searchJobDetailsByName($id){
+
+        $job = Job::find($id);
         $shiftOptions = [
             'morning' => 'Morning Shift',
             'late' => 'Late Shift',
@@ -22,7 +24,7 @@ class JobDetailsController extends Controller
             'long' => 'Long Day',
         ];
         $name = Auth::user()->name;
-        return view("pages.searchJob")->with("name",$name)->with("shiftOptions",$shiftOptions);
+        return view("pages.searchJob")->with("name",$name)->with("shiftOptions",$shiftOptions)->with("job",$job);
     }
 
    public function deleteJob($id){

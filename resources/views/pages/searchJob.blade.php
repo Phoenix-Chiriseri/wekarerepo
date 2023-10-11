@@ -60,7 +60,7 @@
                                     </div>
                                 </div>
                         @endif
-                        <form method='POST' action='{{ route('submitJobDetails') }}'>
+                        <form method='POST' action='{{ route('search-data') }}'>
                             @csrf
                             <div class="row"> 
                                 <div class="mb-3 col-md-12">
@@ -85,9 +85,8 @@
                                 @enderror
                             </div>
                             <br>
-                            <button type="submit" class="btn bg-gradient-dark">Submit</button>
-                            <button type="submit" class="btn bg-gradient-dark" formaction="{{ route('search-data') }}">Search Number Of People</button>
-                            <a href="{{ route('dashboard') }}" class="btn btn-outline-dark">Back</a>
+                            <input type="hidden" value = "{{$job->id}}" name="id">
+                            <button type="submit" class="btn bg-gradient-dark">Search Number Of People</button>
                         </form>
                     </div>
                 </div>
