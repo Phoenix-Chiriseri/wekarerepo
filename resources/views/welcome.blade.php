@@ -65,7 +65,7 @@
             </div>
         </div>
     </div>  
-    <div class="main-content d-flex justify-content-center align-items-center bg-gray-100 min-vh-100" style="margin-top: -200px;">
+    <div class="main-content d-flex justify-content-center align-items-center bg-gray-100 min-vh-100" style="margin-top: -150px;">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12 mt-4">

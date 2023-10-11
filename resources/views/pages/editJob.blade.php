@@ -1,7 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-   //alert("hello world");
+
 });
 </script>
 <x-layout bodyClass="g-sidenav-show bg-gray-200">
@@ -78,7 +78,7 @@ $(document).ready(function(){
                             <p class = "text-center"><strong class = "text-center">For Removing Users:</strong> Select a negative number of users from the dropdown.</p>
                             <div class="row"> 
                                 <div class="mb-3 col-md-12">
-                                    <label class="form-label">Number Of People</label>
+                                    <label class="form-label">Number Of People To Add Or Subtract</label>
                                     <input type="text" name="num_people" class="form-control border border-2 p-2" required>
                                     @error('num_people')
                                 <p class='text-danger inputerror'>{{ $message }} </p>

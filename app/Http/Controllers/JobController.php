@@ -74,7 +74,7 @@ class JobController extends Controller
         $endDate = now()->addDays(6)->toDateString();
         $jobsWithDetails = DB::table('jobs')
         ->leftJoin('job_details', 'jobs.id', '=', 'job_details.job_id')
-        ->select('jobs.job', 'job_details.date', 'job_details.shift', DB::raw('CASE WHEN SUM(job_details.num_people) < 0 THEN 0 ELSE SUM(job_details.num_people) END as total_num_people'))
+        ->select('jobs.job', 'job_details.date', 'job_details.shift', DB::raw('CASE WHEN SUM(job_details. num_people) < 0 THEN 0 ELSE SUM(job_details.num_people) END as total_num_people'))
         ->where('jobs.id', $jobId)
         ->whereBetween('job_details.date', [$startDate, $endDate])
         ->groupBy('jobs.job', 'job_details.date', 'job_details.shift')

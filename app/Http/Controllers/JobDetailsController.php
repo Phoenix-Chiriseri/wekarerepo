@@ -7,6 +7,8 @@ use App\Models\Job;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class JobDetailsController extends Controller
 {
@@ -25,16 +27,16 @@ class JobDetailsController extends Controller
 
     public function editJob($id)
     {
-        
+ 
         $name = Auth::user()->name;
         $job = Job::find($id);
+        $jobId = $job->id;
         $shiftOptions = [
             'morning' => 'Morning Shift',
             'late' => 'Late Shift',
             'night' => 'Night Shift',
             'long' => 'Long Day',
         ];
-        //dd($job);
         return view('pages.editJob')->with("shiftOptions",$shiftOptions)->with("job",$job)->with(
         "name",$name
         );   
