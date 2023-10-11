@@ -33,7 +33,7 @@
                     <div class="card-header pb-0 p-3">
                         <div class="row">
                             <div class="col-md-8 d-flex align-items-center">
-                                <h6 class="mb-3">Please Create Details For The Job</h6>
+                                <h6 class="mb-3">Search For Total Number Of People using the Date and the Shift</h6>
                             </div>
                         </div>
                     </div>
