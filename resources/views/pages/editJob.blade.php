@@ -58,8 +58,9 @@
                                     </div>
                                 </div>
                         @endif
-                        <form method='POST' action='{{ route('submitJob') }}'>
+                        <form action="{{ route('jobs.update', $job->id) }}" method="post">
                             @csrf
+                            @method('PUT')
                             <div class="row"> 
                                 <div class="mb-3 col-md-12">
                                     <label class="form-label">Name</label>
@@ -71,7 +72,6 @@
                             </div>
                             <button type="submit" class="btn bg-gradient-dark">Submit</button>
                         </form>
-
                     </div>
                 </div>
             </div>
