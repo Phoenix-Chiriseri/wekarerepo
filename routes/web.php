@@ -49,4 +49,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', [ProfileController::class, 'create'])->middleware('auth')->name('profile');
 	Route::post('user-profile', [ProfileController::class, 'update']);
 	Route::post('/search-data', [JobDetailsController::class, 'getTotal'])->name('search-data');
+	Route::put('/update-job/{id}',[JobController::class ,'updateJob'])->name('update-job');
 });

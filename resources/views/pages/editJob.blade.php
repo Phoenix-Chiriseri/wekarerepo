@@ -17,6 +17,21 @@
                                 class="w-100 border-radius-lg shadow-sm">
                         </div>
                     </div>
+                    @if(session('success'))
+                    <div class="alert alert-success" style="color:white;">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                     <div class="col-auto my-auto">
                         <div class="h-100">
                             <h5 class="mb-1">
@@ -58,7 +73,7 @@
                                     </div>
                                 </div>
                         @endif
-                        <form action="{{ route('jobs.update', $job->id) }}" method="post">
+                        <form action="{{ route('update-job', $job->id) }}" method="post">
                             @csrf
                             @method('PUT')
                             <div class="row"> 

@@ -20,6 +20,21 @@ class JobController extends Controller
         return view("pages.createJob")->with("name",$name);
     }
 
+    public function updateJob(Request $request,$id){
+
+        $request->validate([
+            'job' => 'required|max:255',
+          ]);
+        $query = "UPDATE jobs SET job = :job WHERE id = :id";
+        // Bind parameters to the query
+        $params = [
+        'job' => $request->input('job'),
+        'id' => $id,
+        ];
+        DB::statement($query, $params);
+        return redirect()->back()->with('success', 'Job updated successfully');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
