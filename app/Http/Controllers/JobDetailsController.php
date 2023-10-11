@@ -30,6 +30,12 @@ class JobDetailsController extends Controller
         return view("pages.searchJob")->with("name",$name)->with("shiftOptions",$shiftOptions)->with("job",$job);
     }
 
+
+    public function updateJobName($id){
+        $job = Job::find($id);
+        return view("pages.updateJob")->with("job",$name);
+    }
+
    public function deleteJob($id){
         $job = Job::find($id);
         if ($job) {
@@ -77,16 +83,7 @@ class JobDetailsController extends Controller
     {
         $name = Auth::user()->name;
         $job = Job::find($id);
-        $jobId = $job->id;
-        $shiftOptions = [
-            'morning' => 'Morning Shift',
-            'late' => 'Late Shift',
-            'night' => 'Night Shift',
-            'long' => 'Long Day',
-        ];
-        return view('pages.editJob')->with("shiftOptions",$shiftOptions)->with("job",$job)->with(
-        "name",$name
-        );   
+        return view('pages.editJob')->with("job",$job)->with("name",$name);
         
     }
     /**

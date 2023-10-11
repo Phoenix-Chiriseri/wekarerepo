@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/submitJob', [JobController::class, 'store'])->name("submitJob");
     Route::get('/deleteJob/{id}', [JobDetailsController::class, 'deleteJob'])->name("deleteJob");
 	Route::get('/editJob/{id}', [JobDetailsController::class, 'editJob'])->name("editJob");
+	Route::get('/updateJob/{id}', [JobDetailsController::class, 'updateJob'])->name("updateJob");
 	Route::get('/searchJob/{id}', [JobDetailsController::class, 'searchJobDetailsByName'])->name("searchJob");
 	Route::get('/changeName/{id}', [JobController::class, 'changeJobName']);
 	Route::get('/search', 'JobDetailsController@searchData')->name('searchData');
