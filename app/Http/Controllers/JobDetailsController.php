@@ -16,6 +16,7 @@ class JobDetailsController extends Controller
 
     public function searchJobDetailsByName($id){
 
+        //find the job by its i.d
         $job = Job::find($id);
         $shiftOptions = [
             'morning' => 'Morning Shift',
@@ -23,6 +24,8 @@ class JobDetailsController extends Controller
             'night' => 'Night Shift',
             'long' => 'Long Day',
         ];
+
+        //get the authenticated users name
         $name = Auth::user()->name;
         return view("pages.searchJob")->with("name",$name)->with("shiftOptions",$shiftOptions)->with("job",$job);
     }
@@ -109,8 +112,4 @@ class JobDetailsController extends Controller
        $jobDetail->save();
        return redirect('/dashboard');
     }
-
-    /**
-     * Display the specified resource.
-     */
 }
