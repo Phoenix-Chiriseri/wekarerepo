@@ -33,14 +33,19 @@ Route::get('/reset-password/{token}', function ($token) {
 //routes for the application tied to the auth middleware
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/createJob', [JobController::class, 'index'])->name("createJob");
+	Route::get('/searchJob', [JobDetailsController::class, 'viewSearchJobScreen'])->name("searchJob");
     Route::post('/submitJob', [JobController::class, 'store'])->name("submitJob");
     Route::get('/deleteJob/{id}', [JobDetailsController::class, 'deleteJob'])->name("deleteJob");
 	Route::get('/editJob/{id}', [JobDetailsController::class, 'editJob'])->name("editJob");
+	Route::get('/searchJob/{id}', [JobDetailsController::class, 'searchJobDetailsByName'])->name("searchJob");
 	Route::get('/changeName/{id}', [JobController::class, 'changeJobName']);
+	Route::get('/search', 'JobDetailsController@searchData')->name('searchData');
+	Route::get('/searchData', [JobDetailsController::class, 'searchData']);
 	Route::post('/submitJobDetails', [JobDetailsController::class, 'createJobDetails'])->name('submitJobDetails');
 	Route::put('/submitChangeJobName/{$id}', [JobController::class, 'submitChangeJobName'])->name('submitChangeJobName');
 	Route::put('/submitChangeJobName/{$id}', [JobController::class, 'submitChangeJobName'])->name('submitChangeJobName');
 	Route::post('sign-out', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 	Route::get('profile', [ProfileController::class, 'create'])->middleware('auth')->name('profile');
 	Route::post('user-profile', [ProfileController::class, 'update']);
+	Route::post('/search-data', [JobDetailsController::class, 'getTotal'])->name('search-data');
 });

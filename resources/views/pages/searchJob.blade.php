@@ -71,17 +71,6 @@
                                 @enderror
                                 </div>  
                             </div>
-                            <p class = "text-center"><strong class = "text-center">For Adding Users:</strong> Put any positive number.</p>
-                            <p class = "text-center"><strong class = "text-center">For Removing Users:</strong> Select a negative number of users from the dropdown.</p>
-                            <div class="row"> 
-                                <div class="mb-3 col-md-12">
-                                    <label class="form-label">Number Of People To Add Or Subtract</label>
-                                    <input type="text" name="num_people" class="form-control border border-2 p-2">
-                                    @error('num_people')
-                                <p class='text-danger inputerror'>{{ $message }} </p>
-                                @enderror
-                                </div>  
-                            </div>
                             <div class="form-group">
                                 <label for="shift">{{ __('Shift') }}</label>
                                 <select class="form-control border border-2 p-2" id="shift" name="shift">
@@ -95,7 +84,6 @@
                                     </div>
                                 @enderror
                             </div>
-                            <input type="hidden" value = "{{$job->id}}" name="id">
                             <br>
                             <button type="submit" class="btn bg-gradient-dark">Submit</button>
                             <button type="submit" class="btn bg-gradient-dark" formaction="{{ route('search-data') }}">Search Number Of People</button>

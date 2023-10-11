@@ -142,6 +142,7 @@
                                             <th class="text-uppercase  text-xxs font-weight-bolder" style="color:black;">Created At</th>
                                             <th class="text-uppercase  text-xxs font-weight-bolder" style="color:black;">Updated At</th>
                                             <th class="text-uppercase  text-xxs font-weight-bolder" style="color:black;">Add Job Details</th>
+                                            <th class="text-uppercase  text-xxs font-weight-bolder" style="color:black;">Search Per Day And Shift</th>
                                             <th class="text-uppercase  text-xxs font-weight-bolder" style="color:black;">Delete Job</th>
                                         </tr>
                                     </thead>
@@ -161,6 +162,12 @@
                                                     <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Edit user" style="color:black;">
                                                         <a href="{{ '/editJob/'. $job->id }}" class = "btn btn btn-outline-dark"><i class = "fa fa-plus"></i>Add</a>
+                                                    </a>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                        data-toggle="tooltip" data-original-title="Edit user" style="color:black;">
+                                                        <a href="{{ '/searchJob/'. $job->id }}" class = "btn btn-dark btn-link"><i class = "fa fa-search"></i>Search</a>
                                                     </a>
                                                 </td>
                                                 <td class="align-middle">

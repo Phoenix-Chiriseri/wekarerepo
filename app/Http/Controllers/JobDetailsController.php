@@ -12,6 +12,19 @@ use Illuminate\Support\Facades\DB;
 
 class JobDetailsController extends Controller
 {
+
+
+    public function searchJobDetailsByName($id){
+        $shiftOptions = [
+            'morning' => 'Morning Shift',
+            'late' => 'Late Shift',
+            'night' => 'Night Shift',
+            'long' => 'Long Day',
+        ];
+        $name = Auth::user()->name;
+        return view("pages.searchJob")->with("name",$name)->with("shiftOptions",$shiftOptions);
+    }
+
    public function deleteJob($id){
         $job = Job::find($id);
         if ($job) {
@@ -23,6 +36,35 @@ class JobDetailsController extends Controller
             //return view('pages.nojobsfound');
             return redirect()->route('nojobsfound')->with('success', 'No jobs Found');
         }
+    }
+
+    public function getTotal(Request $request){
+        
+        $validatedData = $request->validate([
+            'shift' => 'required|string',
+            'date' => 'required|date',
+            'id'=>'required|string'
+        ]);
+        
+        $shift = $validatedData['shift'];
+        $date = $validatedData['date'];
+        $id = $validatedData['id'];
+
+        $jobsWithDetails = DB::table('jobs')
+            ->leftJoin('job_details', 'jobs.id', '=', 'job_details.job_id')
+            ->select(
+                'jobs.job',
+                'job_details.date',
+                'job_details.shift',
+                DB::raw('SUM(job_details.num_people) as total_num_people')
+            )
+            ->where('jobs.id', $id)
+            ->where('job_details.date', $date)
+            ->where('job_details.shift', $shift)
+            ->groupBy('jobs.job', 'job_details.date', 'job_details.shift')
+            ->get();
+            return view('pages.showJobCount')->with("jobWithDetails",$jobsWithDetails);
+            //return redirect()->route('editJob')->with('jobWithDetails',$jobsWithDetails);
     }
 
     public function editJob($id)
