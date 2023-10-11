@@ -41,9 +41,8 @@
                         </div>
                     </div>
                 </div>
-                @if (!$jobWithDetails)
-                <h1 class="text-center">No Job Found</h1>
-                 @else
+                @if ($jobWithDetails->isEmpty())
+                <p>No job records found.</p>
                 <ul class="list-group mt-4">
                     @foreach ($jobWithDetails as $detail)
                         <li class="list-group-item">

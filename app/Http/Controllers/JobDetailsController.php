@@ -52,8 +52,8 @@ class JobDetailsController extends Controller
         $date = $validatedData['date'];
         $id = $validatedData['id'];
 
+        //return the name and the job details to the showJobCount.view
         $name = Auth::user()->name;
-
         $jobsWithDetails = DB::table('jobs')
             ->leftJoin('job_details', 'jobs.id', '=', 'job_details.job_id')
             ->select(
@@ -68,12 +68,10 @@ class JobDetailsController extends Controller
             ->groupBy('jobs.job', 'job_details.date', 'job_details.shift')
             ->get();
             return view('pages.showJobCount')->with("jobWithDetails",$jobsWithDetails)->with("name",$name);
-            //return redirect()->route('editJob')->with('jobWithDetails',$jobsWithDetails);
     }
 
     public function editJob($id)
     {
- 
         $name = Auth::user()->name;
         $job = Job::find($id);
         $jobId = $job->id;
