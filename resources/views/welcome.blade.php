@@ -89,12 +89,6 @@
                                     </a>
                                     <p class="mb-2 text-sm"></p>
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <div>
-                                            <p class="mb-1 text-sm" style="color:black;">Job Created At (UK Time):</p>
-                                            <p class="text-sm" style="color: black;">
-                                                {{ \Carbon\Carbon::parse($job->created_at)->setTimezone('Europe/London')->format('l d-m-y H:i:s') }}
-                                            </p>
-                                        </div>
                                         <a href="{{route('viewJob', $job->id)}}" class="btn btn-success">View Job</a>
                                     </div>
                                     <div class="avatar-group mt-2">

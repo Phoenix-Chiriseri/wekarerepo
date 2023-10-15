@@ -63,6 +63,16 @@ class JobController extends Controller
 
     }
 
+    public function viewAvailableJobs(){
+
+        //query showing only the available jobs as json
+        $jobsWithDetails = DB::table('jobs')
+        ->join('job_details', 'jobs.id', '=', 'job_details.job_id')
+        ->select('jobs.job as job_name', 'job_details.date as date', 'job_details.shift as shift')
+        ->get();
+        return response()->json($jobsWithDetails);
+    }
+
     public function submitChangeJobName(Request $request,$id){
 
         

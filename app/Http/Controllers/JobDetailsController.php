@@ -7,36 +7,11 @@ use App\Models\Job;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
-use Illuminate\Support\Facades\DB;
-
 
 class JobDetailsController extends Controller
 {
 
-
-    public function searchJobDetailsByName($id){
-
-        //find the job by its i.d
-        $job = Job::find($id);
-        $shiftOptions = [
-            'morning' => 'Morning Shift',
-            'late' => 'Late Shift',
-            'night' => 'Night Shift',
-            'long' => 'Long Day',
-        ];
-
-        //get the authenticated users name
-        $name = Auth::user()->name;
-        return view("pages.searchJob")->with("name",$name)->with("shiftOptions",$shiftOptions)->with("job",$job);
-    }
-
-
-    public function updateJobName($id){
-        $job = Job::find($id);
-        return view("pages.updateJob")->with("job",$name);
-    }
-
-   public function deleteJob($id){
+    public function deleteJob($id){
         $job = Job::find($id);
         if ($job) {
             $job->delete();      
@@ -49,41 +24,19 @@ class JobDetailsController extends Controller
         }
     }
 
-    public function getTotal(Request $request){
-        
-        $validatedData = $request->validate([
-            'shift' => 'required|string',
-            'date' => 'required|date',
-            'id'=>'required|string'
-        ]);
-        
-        $shift = $validatedData['shift'];
-        $date = $validatedData['date'];
-        $id = $validatedData['id'];
-
-        //return the name and the job details to the showJobCount.view
-        $name = Auth::user()->name;
-        $jobsWithDetails = DB::table('jobs')
-            ->leftJoin('job_details', 'jobs.id', '=', 'job_details.job_id')
-            ->select(
-                'jobs.job',
-                'job_details.date',
-                'job_details.shift',
-                DB::raw('SUM(job_details.num_people) as total_num_people')
-            )
-            ->where('jobs.id', $id)
-            ->where('job_details.date', $date)
-            ->where('job_details.shift', $shift)
-            ->groupBy('jobs.job', 'job_details.date', 'job_details.shift')
-            ->get();
-            return view('pages.showJobCount')->with("jobWithDetails",$jobsWithDetails)->with("name",$name);
-    }
-
     public function editJob($id)
     {
         $name = Auth::user()->name;
         $job = Job::find($id);
-        return view('pages.editJob')->with("job",$job)->with("name",$name);
+        $shiftOptions = [
+            'morning' => 'Morning Shift',
+            'late' => 'Late Shift',
+            'night' => 'Night Shift',
+            'long' => 'Long Day',
+        ];
+        return view('pages.editJob')->with("shiftOptions",$shiftOptions)->with("job",$job)->with(
+        "name",$name
+        );   
         
     }
     /**
@@ -99,6 +52,7 @@ class JobDetailsController extends Controller
            'num_people' => 'required|integer',
            'shift' => 'required|string',
        ]);
+
        // Create a new job detail
        $jobDetail = new JobDetails();
        $jobDetail->job_id = $request->input('id');
@@ -109,4 +63,8 @@ class JobDetailsController extends Controller
        $jobDetail->save();
        return redirect('/dashboard');
     }
+
+    /**
+     * Display the specified resource.
+     */
 }
