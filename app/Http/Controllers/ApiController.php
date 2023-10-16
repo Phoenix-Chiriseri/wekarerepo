@@ -5,30 +5,25 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Job;
+use Auth;
+use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
-    //
-    public function viewLatestJob(){
+    //the controller for the api controller
+    public function viewAvailableJobs(){
 
-        $jobsWithDetails = DB::table('jobs')
-         ->leftJoin('job_details', 'jobs.id', '=', 'job_details.job_id')
-        ->select(
-        'jobs.job',
-        'job_details.date',
-        'job_details.shift',
-        DB::raw('SUM(job_details.num_people) as total_num_people')
-        )
-    ->where('jobs.id', $id)
-    ->where('job_details.date', $date)
-    ->where('job_details.shift', $shift)
-    ->groupBy('jobs.job', 'job_details.date', 'job_details.shift')
-    ->whereRaw('job_details.created_at = (SELECT MAX(created_at) FROM job_details)')
-    ->get();
-
-    return response()->json($jobsWithDetails);
-    
-    }
-
-    
+          //return all the jobs by their name that are available as json to the android application
+          $jobsWithDetails = DB::table('jobs')
+          ->join('job_details', 'jobs.id', '=', 'job_details.job_id')
+          ->select('jobs.job as job_name','job_details.date')
+          ->get();
+  
+          if(!$jobsWithDetails){
+              return response()->json("error","no jobs found");  
+          }
+          return response()->json($jobsWithDetails);
+    }    
 }
+
+?>

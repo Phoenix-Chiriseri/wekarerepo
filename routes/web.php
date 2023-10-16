@@ -8,6 +8,7 @@ use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\JobDetailsController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ApiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +34,7 @@ Route::post('verify', [SessionsController::class, 'show'])->middleware('guest');
 Route::post('search-job', [SearchController::class, 'searchJob'])->name("search-job");
 Route::get('/viewJob/{id}', [JobController::class, 'viewJobById'])->name("viewJob");
 Route::post('reset-password', [SessionsController::class, 'update'])->middleware('guest')->name('password.update');
-Route::get('/availableJobs',[JobController::class,'viewAvailableJobs'])->name('availableJobs');
+Route::get('/availableJobs',[ApiController::class,'viewAvailableJobs'])->name('availableJobs');
 Route::get('verify', function () {
 	return view('sessions.password.verify');
 })->middleware('guest')->name('verify'); 

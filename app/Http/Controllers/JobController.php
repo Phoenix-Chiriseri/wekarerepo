@@ -65,13 +65,9 @@ class JobController extends Controller
 
     public function viewAvailableJobs(){
 
-        //query showing only the available jobs as json
-        $jobsWithDetails = DB::table('jobs')
-        ->join('job_details', 'jobs.id', '=', 'job_details.job_id')
-        ->select('jobs.job as job_name', 'job_details.date as date', 'job_details.shift as shift')
-        ->get();
-        return response()->json($jobsWithDetails);
+     
     }
+
 
     public function submitChangeJobName(Request $request,$id){
 
@@ -99,12 +95,17 @@ class JobController extends Controller
         $endDate = now()->addDays(6)->toDateString();
         $jobsWithDetails = DB::table('jobs')
         ->leftJoin('job_details', 'jobs.id', '=', 'job_details.job_id')
-        ->select('jobs.job', 'job_details.date', 'job_details.shift', DB::raw('CASE WHEN SUM(job_details. num_people) < 0 THEN 0 ELSE SUM(job_details.num_people) END as total_num_people'))
+        ->select('jobs.job', 'job_details.date', 'job_details.shift',
+         DB::raw('CASE WHEN SUM(job_details. num_people) 
+         < 0 THEN 0 ELSE SUM(job_details.num_people) 
+         END as total_num_people'))
         ->where('jobs.id', $jobId)
         ->whereBetween('job_details.date', [$startDate, $endDate])
         ->groupBy('jobs.job', 'job_details.date', 'job_details.shift')
         ->get();
-        return view('pages.viewJobById')->with('jobsWithDetails', $jobsWithDetails)->with("jobName",$jobName);
+        return view('pages.viewJobById')
+        ->with('jobsWithDetails', $jobsWithDetails)
+        ->with("jobName",$jobName);
     }
 
 }
