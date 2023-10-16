@@ -16,7 +16,8 @@ class ApiController extends Controller
           //return all the jobs by their name that are available as json to the android application
           $jobsWithDetails = DB::table('jobs')
           ->join('job_details', 'jobs.id', '=', 'job_details.job_id')
-          ->select('jobs.job as job_name','job_details.date')
+          ->select('jobs.job as job_name', 'job_details.date', 'shift as shift')
+          ->orderBy('job_details.date', 'desc')
           ->get();
   
           if(!$jobsWithDetails){
